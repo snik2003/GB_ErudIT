@@ -15,6 +15,9 @@
 		172971C520C3E36F0020B5F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172971C320C3E36F0020B5F9 /* LaunchScreen.storyboard */; };
 		1778492020C53DF9006C0D6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778491F20C53DF9006C0D6D /* LoginViewController.swift */; };
 		1778492220C55C7F006C0D6D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492120C55C7F006C0D6D /* Configuration.swift */; };
+		1778492620C56E36006C0D6D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492520C56E36006C0D6D /* Auth.swift */; };
+		1778492A20C570BF006C0D6D /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492920C570BF006C0D6D /* ViewControllerProtocol.swift */; };
+		1778492C20C5789D006C0D6D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492B20C5789D006C0D6D /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		172971C620C3E36F0020B5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1778491F20C53DF9006C0D6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1778492120C55C7F006C0D6D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		1778492520C56E36006C0D6D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		1778492920C570BF006C0D6D /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
+		1778492B20C5789D006C0D6D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9109F5FE69C8F060243D9258 /* Pods-StatsSeeker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatsSeeker.release.xcconfig"; path = "Pods/Target Support Files/Pods-StatsSeeker/Pods-StatsSeeker.release.xcconfig"; sourceTree = "<group>"; };
 		B5032DB0D0E3563FC87C2807 /* Pods_StatsSeeker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StatsSeeker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9767BA8EF8F82CCA27B6199 /* Pods-StatsSeeker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatsSeeker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StatsSeeker/Pods-StatsSeeker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,11 +71,13 @@
 		172971B920C3E36E0020B5F9 /* StatsSeeker */ = {
 			isa = PBXGroup;
 			children = (
+				1778492820C57098006C0D6D /* Protocols */,
 				1778492420C568D2006C0D6D /* Authorization */,
 				1778492320C568B2006C0D6D /* Configuration */,
 				172971BA20C3E36E0020B5F9 /* AppDelegate.swift */,
 				172971BC20C3E36E0020B5F9 /* ViewController.swift */,
 				1778491F20C53DF9006C0D6D /* LoginViewController.swift */,
+				1778492B20C5789D006C0D6D /* TabBarController.swift */,
 				172971BE20C3E36E0020B5F9 /* Main.storyboard */,
 				172971C320C3E36F0020B5F9 /* LaunchScreen.storyboard */,
 				172971C620C3E36F0020B5F9 /* Info.plist */,
@@ -89,8 +97,17 @@
 		1778492420C568D2006C0D6D /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				1778492520C56E36006C0D6D /* Auth.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		1778492820C57098006C0D6D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1778492920C570BF006C0D6D /* ViewControllerProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4279BF66AA45CC2FFA76BF63 /* Frameworks */ = {
@@ -238,8 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1778492A20C570BF006C0D6D /* ViewControllerProtocol.swift in Sources */,
+				1778492620C56E36006C0D6D /* Auth.swift in Sources */,
 				1778492020C53DF9006C0D6D /* LoginViewController.swift in Sources */,
 				172971BD20C3E36E0020B5F9 /* ViewController.swift in Sources */,
+				1778492C20C5789D006C0D6D /* TabBarController.swift in Sources */,
 				1778492220C55C7F006C0D6D /* Configuration.swift in Sources */,
 				172971BB20C3E36E0020B5F9 /* AppDelegate.swift in Sources */,
 			);

@@ -83,6 +83,25 @@ class LoginViewController: UIViewController {
     @objc func hideKeyboard() {
         self.scrollView?.endEditing(true)
     }
+    
+    @IBAction func authButtonClick(sender: UIButton) {
+        self.hideKeyboard()
+        
+        if let login = loginTextField.text, let pass = passTextField.text {
+            if Auth().autorization(login, pass) {
+                performSegue(withIdentifier: "goTabBar", sender: self)
+            } else {
+                passTextField?.text = ""
+                self.showErrorMessage(title: "Ошибка авторизации", msg: "Неверный логин или пароль.")
+            }
+        }
+    }
+    
+    @IBAction func restoreButtonClick(sender: UIButton) {
+        self.hideKeyboard()
+        
+        self.showErrorMessage(title: "Забыли пароль?", msg: "Функция восстановления пароля доступна только в платной версии приложения.\n\nДля восстановления пароля обратитесь к Администратору системы.")
+    }
 }
 
 extension UITextField {
