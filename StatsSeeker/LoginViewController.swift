@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -19,9 +20,28 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
         configureStartView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -37,6 +57,31 @@ class LoginViewController: UIViewController {
         
         authButton.startConfigure()
         restoreButton.startConfigure()
+    }
+    
+    @objc func keyboardWasShown(notification: Notification) {
+        
+        if let info = notification.userInfo as NSDictionary?, let kbSize = (info.value(forKey: UIKeyboardFrameEndUserInfoKey) as? NSValue)?.cgRectValue.size {
+            
+            let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
+            self.scrollView?.contentInset = contentInsets
+            self.scrollView?.scrollIndicatorInsets = contentInsets
+            
+            if let maxY = self.scrollView?.contentSize.height {
+                self.scrollView?.scrollRectToVisible(CGRect(x: 0, y: maxY, width: 1, height: 1), animated: true)
+            }
+        }
+    }
+    
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        
+        let contentInsets = UIEdgeInsets.zero
+        self.scrollView?.contentInset = contentInsets
+        self.scrollView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc func hideKeyboard() {
+        self.scrollView?.endEditing(true)
     }
 }
 

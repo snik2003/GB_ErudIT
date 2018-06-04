@@ -11,5 +11,6 @@ import UIKit
 final class ssConfig {
     static let shared = ssConfig()
     
+    
     let backgroundColor = UIColor.init(red: 200/255, green: 229/255, blue: 239/255, alpha: 1)
 }

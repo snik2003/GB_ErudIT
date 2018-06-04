@@ -65,6 +65,8 @@
 		172971B920C3E36E0020B5F9 /* StatsSeeker */ = {
 			isa = PBXGroup;
 			children = (
+				1778492420C568D2006C0D6D /* Authorization */,
+				1778492320C568B2006C0D6D /* Configuration */,
 				172971BA20C3E36E0020B5F9 /* AppDelegate.swift */,
 				172971BC20C3E36E0020B5F9 /* ViewController.swift */,
 				1778491F20C53DF9006C0D6D /* LoginViewController.swift */,
@@ -72,9 +74,23 @@
 				172971C320C3E36F0020B5F9 /* LaunchScreen.storyboard */,
 				172971C620C3E36F0020B5F9 /* Info.plist */,
 				172971C120C3E36F0020B5F9 /* Assets.xcassets */,
-				1778492120C55C7F006C0D6D /* Configuration.swift */,
 			);
 			path = StatsSeeker;
+			sourceTree = "<group>";
+		};
+		1778492320C568B2006C0D6D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1778492120C55C7F006C0D6D /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		1778492420C568D2006C0D6D /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		4279BF66AA45CC2FFA76BF63 /* Frameworks */ = {
@@ -302,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -356,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
