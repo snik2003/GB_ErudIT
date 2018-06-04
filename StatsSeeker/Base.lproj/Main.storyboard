@@ -61,7 +61,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="snik2003" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OTg-0W-WC3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user1" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OTg-0W-WC3">
                                         <rect key="frame" x="40" y="380" width="295" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Yay-eV-bXW"/>
@@ -70,7 +70,7 @@
                                         <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aze-5s-9k7">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aze-5s-9k7">
                                         <rect key="frame" x="40" y="420" width="295" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dbH-UC-DgJ"/>
@@ -245,6 +245,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="apn-cd-6IC" customClass="TabBarController" customModule="StatsSeeker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E8K-EI-WE8">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.14562258119999999" green="0.42388910060000001" blue="0.63527506590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -92,7 +92,7 @@ class LoginViewController: UIViewController {
                 performSegue(withIdentifier: "goTabBar", sender: self)
             } else {
                 passTextField?.text = ""
-                self.showErrorMessage(title: "Ошибка авторизации", msg: "Неверный логин или пароль.")
+                self.showErrorMessage(title: "Ошибка авторизации \(login)", msg: "Неверный логин или пароль.\n")
             }
         }
     }
