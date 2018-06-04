@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uf1-rG-d3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="1551"/>
+            <point key="canvasLocation" x="1542" y="1549"/>
         </scene>
         <!--Ежедневная статистика-->
         <scene sceneID="2cP-Af-EuU">
@@ -237,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Az-4a-lsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="1550"/>
+            <point key="canvasLocation" x="798" y="1549"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mEY-0Y-pYa">
@@ -252,8 +252,8 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TNm-Vv-YqN" kind="relationship" relationship="viewControllers" id="HcY-9j-qd9"/>
                         <segue destination="UXd-8c-8ij" kind="relationship" relationship="viewControllers" id="pwk-Ab-ToK"/>
+                        <segue destination="TNm-Vv-YqN" kind="relationship" relationship="viewControllers" id="HcY-9j-qd9"/>
                         <segue destination="qss-Gt-Zp3" kind="relationship" relationship="viewControllers" id="JuP-Ug-Wlw"/>
                     </connections>
                 </tabBarController>
@@ -286,7 +286,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrj-Y9-OX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797.60000000000002" y="795.6521739130435"/>
+            <point key="canvasLocation" x="1542" y="796"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="QYo-YH-YBu">
@@ -313,7 +313,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTe-wo-iq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="796"/>
+            <point key="canvasLocation" x="798" y="796"/>
         </scene>
         <!--Ежедневная статистика-->
         <scene sceneID="LBi-D7-yCG">
