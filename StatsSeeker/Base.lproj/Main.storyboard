@@ -195,7 +195,7 @@
                         <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Rft-sI-xDY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Общая статитстика" id="aPg-wa-mr3">
+                    <navigationItem key="navigationItem" title="Общая статистика" id="aPg-wa-mr3">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="fFS-Rw-nRO"/>
                     </navigationItem>
                 </viewController>
