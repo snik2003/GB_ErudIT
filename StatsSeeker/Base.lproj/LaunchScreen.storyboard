@@ -20,24 +20,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startImage" translatesAutoresizingMaskIntoConstraints="NO" id="8d9-2Z-XPF">
-                                <rect key="frame" x="0.0" y="176" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="166" width="375" height="375"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stats Seeker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPy-4e-xrQ">
-                                <rect key="frame" x="0.0" y="120" width="375" height="43"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЭрудIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPy-4e-xrQ">
+                                <rect key="frame" x="0.0" y="120" width="375" height="49"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="40"/>
                                 <color key="textColor" red="0.92941176470588238" green="0.16862745098039217" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Инструмент определения популярности" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Xyw-FJ-jhU">
+                                <rect key="frame" x="10" y="561" width="355" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.78431372549019607" green="0.89803921568627454" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JPy-4e-xrQ" secondAttribute="trailing" id="Byq-ok-8YC"/>
+                            <constraint firstItem="Xyw-FJ-jhU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Hbz-dd-hXz"/>
                             <constraint firstItem="8d9-2Z-XPF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PaG-sz-E97"/>
                             <constraint firstItem="JPy-4e-xrQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Ub4-Xp-ITJ"/>
                             <constraint firstItem="JPy-4e-xrQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="W3P-eq-rZh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xyw-FJ-jhU" secondAttribute="trailing" constant="10" id="XWN-M8-pOs"/>
                             <constraint firstItem="8d9-2Z-XPF" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="width" id="cae-mF-A8M"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8d9-2Z-XPF" secondAttribute="trailing" id="kj8-ao-gmC"/>
-                            <constraint firstItem="8d9-2Z-XPF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="20" id="ny9-h3-GAx"/>
+                            <constraint firstItem="Xyw-FJ-jhU" firstAttribute="top" secondItem="8d9-2Z-XPF" secondAttribute="bottom" constant="20" id="nOJ-cg-0iC"/>
+                            <constraint firstItem="8d9-2Z-XPF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="10" id="ny9-h3-GAx"/>
                             <constraint firstItem="JPy-4e-xrQ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="o4q-4e-dSX"/>
                             <constraint firstItem="8d9-2Z-XPF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oQb-l0-ndZ"/>
                         </constraints>
