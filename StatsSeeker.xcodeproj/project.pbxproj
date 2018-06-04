@@ -73,6 +73,9 @@
 		172971B920C3E36E0020B5F9 /* StatsSeeker */ = {
 			isa = PBXGroup;
 			children = (
+				1778493220C58A15006C0D6D /* DailyStats */,
+				1778493120C58A0B006C0D6D /* TotalStats */,
+				1778493020C589FB006C0D6D /* Options */,
 				1778492820C57098006C0D6D /* Protocols */,
 				1778492420C568D2006C0D6D /* Authorization */,
 				1778492320C568B2006C0D6D /* Configuration */,
@@ -111,6 +114,27 @@
 				1778492D20C58757006C0D6D /* ViewControllerUtils.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1778493020C589FB006C0D6D /* Options */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Options;
+			sourceTree = "<group>";
+		};
+		1778493120C58A0B006C0D6D /* TotalStats */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TotalStats;
+			sourceTree = "<group>";
+		};
+		1778493220C58A15006C0D6D /* DailyStats */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DailyStats;
 			sourceTree = "<group>";
 		};
 		4279BF66AA45CC2FFA76BF63 /* Frameworks */ = {
