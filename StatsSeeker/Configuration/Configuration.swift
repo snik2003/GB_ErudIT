@@ -19,5 +19,5 @@ final class appConfig {
     let apiURL1 = "https://kruserapi.dtgb.solutions"
     let apiURL2 = "https://smallapi.dtgb.solutions"
     
-    let apiVersion = "/v1/"
+    let apiVersion = "v1"
 }
