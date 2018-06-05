@@ -13,4 +13,9 @@ final class appConfig {
     
     let appName = "ЭрудIT"
     let backColor = UIColor.init(red: 200/255, green: 229/255, blue: 239/255, alpha: 1)
+    
+    let apiURL1 = "https://kruserapi.dtgb.solutions"
+    let apiURL2 = "https://smallapi.dtgb.solutions"
+    
+    let apiVersion = "/v1/"
 }
