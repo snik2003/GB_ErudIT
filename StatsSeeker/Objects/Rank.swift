@@ -15,8 +15,12 @@ class Rank {
     var pageURL: String = ""
     var lastScanDate: String = ""
     var foundDateTime: String = ""
-    var site: [Site]!
-    var word: [Word]!
+    
+    var siteID: Int = 0
+    var siteName: String = ""
+    
+    var wordID: Int = 0
+    var wordName: String = ""
     
     init(json: JSON) {
         self.rank = json["rank"].intValue
@@ -25,7 +29,10 @@ class Rank {
         self.lastScanDate = json["pageID"]["lastScanDate"].stringValue
         self.foundDateTime = json["pageID"]["foundDateTime"].stringValue
         
-        self.site = json["pageID"]["siteID"].compactMap({ Site(json: $0.1) })
-        self.word = json["pageID"]["personID"].compactMap({ Word(json: $0.1) })
+        self.siteID = json["pageID"]["siteId"]["id"].intValue
+        self.siteName = json["pageID"]["siteId"]["name"].stringValue
+        
+        self.wordID = json["personID"]["id"].intValue
+        self.wordName = json["personID"]["name"].stringValue
     }
 }

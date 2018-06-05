@@ -83,9 +83,11 @@ extension UIViewController: ViewControllerProtocol {
         }
     }
     
-    func openStatPresenter(title: String) {
+    func openStatPresenter(site: Site?, word: Word?, title: String) {
         let controller = storyboard?.instantiateViewController(withIdentifier: "StatPresenterController") as! StatPresenterController
         
+        controller.site = site
+        controller.word = word
         controller.title = title
         
         self.navigationController?.pushViewController(controller, animated: true)

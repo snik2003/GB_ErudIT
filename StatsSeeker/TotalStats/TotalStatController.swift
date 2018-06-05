@@ -154,9 +154,9 @@ class TotalStatController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.statType == "sites" {
-            self.openStatPresenter(title: "Сайт «\(sites[indexPath.row].name)»")
+            self.openStatPresenter(site: sites[indexPath.row], word: nil, title: "Сайт «\(sites[indexPath.row].name)»")
         } else if self.statType == "persons" {
-            self.openStatPresenter(title: "Слово «\(words[indexPath.row].name)»")
+            self.openStatPresenter(site: nil, word: words[indexPath.row], title: "Слово «\(words[indexPath.row].name)»")
         }
     }
 }

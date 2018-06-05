@@ -15,7 +15,9 @@ class StatPresenterController: UITableViewController {
     var word: Word?
     
     var ranks: [Rank] = []
-    var statType: String = ""
+    
+    var result: [String: Int] = [:]
+    var names: [String] = []
     
     let queue: OperationQueue = {
         let queue = OperationQueue()
@@ -35,6 +37,8 @@ class StatPresenterController: UITableViewController {
 
     func getStat() {
         ranks.removeAll(keepingCapacity: false)
+        names.removeAll(keepingCapacity: false)
+        result.removeAll(keepingCapacity: false)
         
         tableView.separatorStyle = .none
         ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
@@ -50,39 +54,63 @@ class StatPresenterController: UITableViewController {
             self.ranks = json.compactMap({ Rank(json: $0.1) })
             
             for rank in self.ranks {
-                if rank.site.count > 0 {
-                    print(rank.site[0].name)
+                if let site = self.site {
+                    if rank.siteID == site.id {
+                        if let num = self.result[rank.wordName] {
+                            self.result[rank.wordName] = num + rank.rank
+                        } else {
+                            self.result[rank.wordName] = rank.rank
+                            self.names.append(rank.wordName)
+                        }
+                    }
+                } else if let word = self.word {
+                    if rank.wordID == word.id {
+                        if let num = self.result[rank.siteName] {
+                            self.result[rank.siteName] = num + rank.rank
+                        } else {
+                            self.result[rank.siteName] = rank.rank
+                            self.names.append(rank.siteName)
+                        }
+                    }
                 }
-                if rank.word.count > 0 {
-                    print(rank.word[0].name)
-                }
-                print("\n")
             }
-            
             
             OperationQueue.main.addOperation {
                 self.tableView.reloadData()
                 ViewControllerUtils().hideActivityIndicator()
-                self.tableView.separatorStyle = .singleLine
                 
-                /*if self.names.count == 0 {
-                    self.showErrorMessage(title: self.itemsMenu[self.selectedMenu], msg: "Ошибка! В базе данных отсутствует информация по данному виду статистики.")
+                if self.names.count == 0, let title = self.title {
+                    self.showErrorMessage(title: title, msg: "Ошибка! В базе данных отсутствует информация по данному виду статистики.")
                 } else {
                     self.tableView.separatorStyle = .singleLine
-                }*/
+                }
             }
         }
         queue.addOperation(getServerData)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return names.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if names.count > 0 {
+            return 10
+        }
         return 0
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if names.count > 0 {
+            return 10
+        }
+        return 0
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -100,6 +128,11 @@ class StatPresenterController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath)
 
+        cell.textLabel?.text = names[indexPath.row]
+        
+        if let rank = result[names[indexPath.row]] {
+            cell.detailTextLabel?.text = "\(rank)"
+        }
         
         return cell
     }
