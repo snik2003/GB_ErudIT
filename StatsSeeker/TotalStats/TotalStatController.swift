@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 import BTNavigationDropdownMenu
 
 class TotalStatController: UITableViewController {
 
     var selectedMenu = 0
     let itemsMenu = ["Статистика по сайту", "Статистика по слову"]
-    var statType = "site"
+    
+    var statType = "sites"
+    var names: [String] = []
     
     let queue: OperationQueue = {
         let queue = OperationQueue()
@@ -39,18 +42,58 @@ class TotalStatController: UITableViewController {
             self?.selectedMenu = indexPath
             switch indexPath {
             case 0:
-                self.statType = "site"
+                self?.statType = "sites"
+                self?.getStat()
                 break
             case 1:
-                self.statType = "person"
+                self?.statType = "persons"
+                self?.getStat()
                 break
             default:
                 break
             }
         }
-
+        
+        getStat()
     }
 
+    func getStat() {
+        names.removeAll(keepingCapacity: false)
+        tableView.separatorStyle = .none
+        ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
+    
+        let getServerData = GetServerDataOperation(url: self.statType, parameters: nil)
+        getServerData.completionBlock = {
+            guard let data = getServerData.data else { return }
+            
+            guard let json = try? JSON(data: data) else { self.jsonErrorMessage(); return }
+            //print(json)
+            
+            if self.statType == "sites" {
+                let sites = json.compactMap { Site(json: $0.1) }
+                for site in sites {
+                    self.names.append(site.name)
+                }
+            } else if self.statType == "persons" {
+                let words = json.compactMap { Word(json: $0.1) }
+                for word in words {
+                    self.names.append(word.name)
+                }
+            }
+            
+            OperationQueue.main.addOperation {
+                self.tableView.reloadData()
+                ViewControllerUtils().hideActivityIndicator()
+                if self.names.count == 0 {
+                    self.showErrorMessage(title: self.itemsMenu[self.selectedMenu], msg: "Ошибка! В базе данных отсутствует информация по данному виду статистики.")
+                } else {
+                    self.tableView.separatorStyle = .singleLine
+                }
+            }
+        }
+        queue.addOperation(getServerData)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -60,15 +103,21 @@ class TotalStatController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return names.count
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        if names.count > 0 {
+            return 10
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        if names.count > 0 {
+            return 10
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -88,6 +137,13 @@ class TotalStatController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath)
 
+        cell.textLabel?.text = "\(indexPath.row+1). \(names[indexPath.row])"
+        
+        if self.statType == "sites" {
+            cell.detailTextLabel?.text = ""
+        } else if self.statType == "persons" {
+        }
+        
         return cell
     }
 }

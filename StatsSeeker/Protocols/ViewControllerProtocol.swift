@@ -16,6 +16,8 @@ protocol ViewControllerProtocol {
     func showSuccessMessage(title: String, msg: String)
     
     func showInfoMessage(title: String, msg: String)
+    
+    func jsonErrorMessage()
 }
 
 extension UIViewController: ViewControllerProtocol {
@@ -72,5 +74,10 @@ extension UIViewController: ViewControllerProtocol {
             alert.addButton("OK", action: {})
             alert.showInfo(title, subTitle: msg)
         }
+    }
+    
+    func jsonErrorMessage() {
+        ViewControllerUtils().hideActivityIndicator()
+        self.showErrorMessage(title: "Ошибка в \(appConfig.shared.appName)!", msg: "Ошибка получения данных. Проверьте подключение к Интернету.")
     }
 }
