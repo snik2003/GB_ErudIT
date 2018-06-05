@@ -185,24 +185,6 @@
             </objects>
             <point key="canvasLocation" x="797.60000000000002" y="29.23538230884558"/>
         </scene>
-        <!--Общая статистика-->
-        <scene sceneID="mLE-ph-2Ci">
-            <objects>
-                <viewController title="Общая статистика" id="gF6-5S-mgH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dx7-yg-Dv2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="Rft-sI-xDY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Общая статистика" id="aPg-wa-mr3">
-                        <barButtonItem key="backBarButtonItem" title="Назад" id="fFS-Rw-nRO"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uf1-rG-d3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1542" y="1549"/>
-        </scene>
         <!--Ежедневная статистика-->
         <scene sceneID="2cP-Af-EuU">
             <objects>
@@ -221,6 +203,48 @@
             </objects>
             <point key="canvasLocation" x="2294" y="1550"/>
         </scene>
+        <!--Общая статистика-->
+        <scene sceneID="UYb-Cd-6CT">
+            <objects>
+                <tableViewController storyboardIdentifier="TotalStatController" title="Общая статистика" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fOm-f2-3fO" customClass="TotalStatController" customModule="StatsSeeker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t9U-4u-vy8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="statCell" textLabel="ZG3-jL-ZbF" style="IBUITableViewCellStyleDefault" id="NdX-9A-Lpj">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NdX-9A-Lpj" id="lVM-JS-Hjo">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZG3-jL-ZbF">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fOm-f2-3fO" id="fKV-9s-PAj"/>
+                            <outlet property="delegate" destination="fOm-f2-3fO" id="DdV-HP-V8M"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Общая статистика" id="Ike-NB-cSG">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="nFK-rJ-Blf"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsE-Un-UN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="1549"/>
+        </scene>
         <!--Настройки-->
         <scene sceneID="dym-in-AiJ">
             <objects>
@@ -237,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Az-4a-lsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="1549"/>
+            <point key="canvasLocation" x="1542" y="1549"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mEY-0Y-pYa">
@@ -252,8 +276,8 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="UXd-8c-8ij" kind="relationship" relationship="viewControllers" id="pwk-Ab-ToK"/>
                         <segue destination="TNm-Vv-YqN" kind="relationship" relationship="viewControllers" id="HcY-9j-qd9"/>
+                        <segue destination="UXd-8c-8ij" kind="relationship" relationship="viewControllers" id="pwk-Ab-ToK"/>
                         <segue destination="qss-Gt-Zp3" kind="relationship" relationship="viewControllers" id="JuP-Ug-Wlw"/>
                     </connections>
                 </tabBarController>
@@ -281,12 +305,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gF6-5S-mgH" kind="relationship" relationship="rootViewController" id="v5I-9c-WLq"/>
+                        <segue destination="fOm-f2-3fO" kind="relationship" relationship="rootViewController" id="hzM-7B-4sV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hrj-Y9-OX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="796"/>
+            <point key="canvasLocation" x="798" y="796"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="QYo-YH-YBu">
@@ -313,7 +337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTe-wo-iq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="796"/>
+            <point key="canvasLocation" x="1542" y="796"/>
         </scene>
         <!--Ежедневная статистика-->
         <scene sceneID="LBi-D7-yCG">

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10BD9139C99AAC201CF1FAD7 /* Pods_StatsSeeker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5032DB0D0E3563FC87C2807 /* Pods_StatsSeeker.framework */; };
+		170587B720C681CB002D0C95 /* TotalStatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170587B620C681CB002D0C95 /* TotalStatController.swift */; };
 		172971BB20C3E36E0020B5F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172971BA20C3E36E0020B5F9 /* AppDelegate.swift */; };
 		172971BD20C3E36E0020B5F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172971BC20C3E36E0020B5F9 /* ViewController.swift */; };
 		172971C020C3E36E0020B5F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172971BE20C3E36E0020B5F9 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		170587B620C681CB002D0C95 /* TotalStatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalStatController.swift; sourceTree = "<group>"; };
 		172971B720C3E36E0020B5F9 /* StatsSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		172971BA20C3E36E0020B5F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		172971BC20C3E36E0020B5F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		1778493120C58A0B006C0D6D /* TotalStats */ = {
 			isa = PBXGroup;
 			children = (
+				170587B620C681CB002D0C95 /* TotalStatController.swift */,
 			);
 			path = TotalStats;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-StatsSeeker/Pods-StatsSeeker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/BTNavigationDropdownMenu/BTNavigationDropdownMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -244,6 +248,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BTNavigationDropdownMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -284,6 +289,7 @@
 			files = (
 				1778492A20C570BF006C0D6D /* ViewControllerProtocol.swift in Sources */,
 				1778492620C56E36006C0D6D /* Auth.swift in Sources */,
+				170587B720C681CB002D0C95 /* TotalStatController.swift in Sources */,
 				1778492020C53DF9006C0D6D /* LoginViewController.swift in Sources */,
 				172971BD20C3E36E0020B5F9 /* ViewController.swift in Sources */,
 				1778492E20C58757006C0D6D /* ViewControllerUtils.swift in Sources */,
