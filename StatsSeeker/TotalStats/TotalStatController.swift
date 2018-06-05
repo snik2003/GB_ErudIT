@@ -18,6 +18,9 @@ class TotalStatController: UITableViewController {
     var statType = "sites"
     var names: [String] = []
     
+    var sites: [Site] = []
+    var words: [Word] = []
+    
     let queue: OperationQueue = {
         let queue = OperationQueue()
         queue.qualityOfService = .userInteractive
@@ -59,6 +62,9 @@ class TotalStatController: UITableViewController {
 
     func getStat() {
         names.removeAll(keepingCapacity: false)
+        sites.removeAll(keepingCapacity: false)
+        words.removeAll(keepingCapacity: false)
+        
         tableView.separatorStyle = .none
         ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
     
@@ -70,13 +76,13 @@ class TotalStatController: UITableViewController {
             //print(json)
             
             if self.statType == "sites" {
-                let sites = json.compactMap { Site(json: $0.1) }
-                for site in sites {
+                self.sites = json.compactMap { Site(json: $0.1) }
+                for site in self.sites {
                     self.names.append(site.name)
                 }
             } else if self.statType == "persons" {
-                let words = json.compactMap { Word(json: $0.1) }
-                for word in words {
+                self.words = json.compactMap { Word(json: $0.1) }
+                for word in self.words {
                     self.names.append(word.name)
                 }
             }
@@ -137,13 +143,20 @@ class TotalStatController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath)
 
-        cell.textLabel?.text = "\(indexPath.row+1). \(names[indexPath.row])"
-        
         if self.statType == "sites" {
-            cell.detailTextLabel?.text = ""
+            cell.textLabel?.text = "\(indexPath.row+1). \(sites[indexPath.row].name)"
         } else if self.statType == "persons" {
+            cell.textLabel?.text = "\(indexPath.row+1). \(words[indexPath.row].name)"
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.statType == "sites" {
+            self.openStatPresenter(title: "Сайт «\(sites[indexPath.row].name)»")
+        } else if self.statType == "persons" {
+            self.openStatPresenter(title: "Слово «\(words[indexPath.row].name)»")
+        }
     }
 }

@@ -13,6 +13,8 @@
 		170587BC20C68FD0002D0C95 /* GetServerDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170587BB20C68FD0002D0C95 /* GetServerDataOperation.swift */; };
 		170587BF20C693E7002D0C95 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170587BE20C693E7002D0C95 /* Site.swift */; };
 		170587C120C69471002D0C95 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170587C020C69471002D0C95 /* Word.swift */; };
+		170587C320C69E91002D0C95 /* StatPresenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170587C220C69E91002D0C95 /* StatPresenterController.swift */; };
+		170587C520C6A656002D0C95 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170587C420C6A656002D0C95 /* Rank.swift */; };
 		172971BB20C3E36E0020B5F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172971BA20C3E36E0020B5F9 /* AppDelegate.swift */; };
 		172971BD20C3E36E0020B5F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172971BC20C3E36E0020B5F9 /* ViewController.swift */; };
 		172971C020C3E36E0020B5F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172971BE20C3E36E0020B5F9 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		170587BB20C68FD0002D0C95 /* GetServerDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetServerDataOperation.swift; sourceTree = "<group>"; };
 		170587BE20C693E7002D0C95 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		170587C020C69471002D0C95 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		170587C220C69E91002D0C95 /* StatPresenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatPresenterController.swift; sourceTree = "<group>"; };
+		170587C420C6A656002D0C95 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		172971B720C3E36E0020B5F9 /* StatsSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		172971BA20C3E36E0020B5F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		172971BC20C3E36E0020B5F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			children = (
 				170587BE20C693E7002D0C95 /* Site.swift */,
 				170587C020C69471002D0C95 /* Word.swift */,
+				170587C420C6A656002D0C95 /* Rank.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -103,8 +108,8 @@
 			children = (
 				170587BD20C693D1002D0C95 /* Objects */,
 				170587B820C68F56002D0C95 /* WebService */,
-				1778493220C58A15006C0D6D /* DailyStats */,
 				1778493120C58A0B006C0D6D /* TotalStats */,
+				1778493220C58A15006C0D6D /* DailyStats */,
 				1778493020C589FB006C0D6D /* Options */,
 				1778492820C57098006C0D6D /* Protocols */,
 				1778492420C568D2006C0D6D /* Authorization */,
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				170587B620C681CB002D0C95 /* TotalStatController.swift */,
+				170587C220C69E91002D0C95 /* StatPresenterController.swift */,
 			);
 			path = TotalStats;
 			sourceTree = "<group>";
@@ -318,7 +324,9 @@
 				1778492A20C570BF006C0D6D /* ViewControllerProtocol.swift in Sources */,
 				1778492620C56E36006C0D6D /* Auth.swift in Sources */,
 				170587B720C681CB002D0C95 /* TotalStatController.swift in Sources */,
+				170587C520C6A656002D0C95 /* Rank.swift in Sources */,
 				1778492020C53DF9006C0D6D /* LoginViewController.swift in Sources */,
+				170587C320C69E91002D0C95 /* StatPresenterController.swift in Sources */,
 				172971BD20C3E36E0020B5F9 /* ViewController.swift in Sources */,
 				1778492E20C58757006C0D6D /* ViewControllerUtils.swift in Sources */,
 				170587BC20C68FD0002D0C95 /* GetServerDataOperation.swift in Sources */,

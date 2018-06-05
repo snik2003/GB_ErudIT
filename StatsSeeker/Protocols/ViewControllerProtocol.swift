@@ -77,7 +77,17 @@ extension UIViewController: ViewControllerProtocol {
     }
     
     func jsonErrorMessage() {
-        ViewControllerUtils().hideActivityIndicator()
-        self.showErrorMessage(title: "Ошибка в \(appConfig.shared.appName)!", msg: "Ошибка получения данных. Проверьте подключение к Интернету.")
+        OperationQueue.main.addOperation {
+            ViewControllerUtils().hideActivityIndicator()
+            self.showErrorMessage(title: "Ошибка в \(appConfig.shared.appName)!", msg: "Ошибка получения данных. Проверьте подключение к Интернету.")
+        }
+    }
+    
+    func openStatPresenter(title: String) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "StatPresenterController") as! StatPresenterController
+        
+        controller.title = title
+        
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
