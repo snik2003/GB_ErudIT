@@ -75,9 +75,10 @@ class OptionsController: UITableViewController {
             alertController.addAction(cancelAction)
             
             let action = UIAlertAction(title: "Сменить пользователя", style: .destructive) { action in
-                let controller = self.storyboard?.instantiateViewController(withIdentifier: "StartViewController") as! ViewController
+                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "StartViewController") as? ViewController {
                 
-                UIApplication.shared.keyWindow?.rootViewController = controller
+                    UIApplication.shared.keyWindow?.rootViewController = controller
+                }
             }
             alertController.addAction(action)
             present(alertController, animated: true)

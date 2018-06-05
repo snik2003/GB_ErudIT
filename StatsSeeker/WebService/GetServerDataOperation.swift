@@ -33,6 +33,5 @@ class GetServerDataOperation: AsyncOperation {
         self.url = appConfig.shared.apiURL1 + "/" + appConfig.shared.apiVersion + "/" + url
         self.parameters = parameters
         request = Alamofire.request(self.url, method: .get, parameters: self.parameters)
-        
     }
 }
