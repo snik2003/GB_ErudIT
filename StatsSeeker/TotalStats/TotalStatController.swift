@@ -35,7 +35,7 @@ class TotalStatController: UITableViewController {
         menuView.cellBackgroundColor = UIColor.white
         menuView.cellSelectionColor = UIColor.white
         menuView.cellTextLabelAlignment = .center
-        menuView.cellTextLabelColor = appConfig.shared.textColor
+        menuView.cellTextLabelColor = UIColor.black
         menuView.selectedCellTextLabelColor = UIColor.red
         menuView.cellTextLabelFont = UIFont.boldSystemFont(ofSize: 15)
         menuView.navigationBarTitleFont = UIFont.boldSystemFont(ofSize: 17)
