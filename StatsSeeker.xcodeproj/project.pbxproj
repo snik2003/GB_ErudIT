@@ -27,6 +27,7 @@
 		1778492A20C570BF006C0D6D /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492920C570BF006C0D6D /* ViewControllerProtocol.swift */; };
 		1778492C20C5789D006C0D6D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492B20C5789D006C0D6D /* TabBarController.swift */; };
 		1778492E20C58757006C0D6D /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492D20C58757006C0D6D /* ViewControllerUtils.swift */; };
+		17D010A420C7D77D00C20E96 /* DailyStatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D010A320C7D77D00C20E96 /* DailyStatController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		1778492920C570BF006C0D6D /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		1778492B20C5789D006C0D6D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1778492D20C58757006C0D6D /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
+		17D010A320C7D77D00C20E96 /* DailyStatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatController.swift; sourceTree = "<group>"; };
 		9109F5FE69C8F060243D9258 /* Pods-StatsSeeker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatsSeeker.release.xcconfig"; path = "Pods/Target Support Files/Pods-StatsSeeker/Pods-StatsSeeker.release.xcconfig"; sourceTree = "<group>"; };
 		B5032DB0D0E3563FC87C2807 /* Pods_StatsSeeker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StatsSeeker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9767BA8EF8F82CCA27B6199 /* Pods-StatsSeeker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatsSeeker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StatsSeeker/Pods-StatsSeeker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		1778493220C58A15006C0D6D /* DailyStats */ = {
 			isa = PBXGroup;
 			children = (
+				17D010A320C7D77D00C20E96 /* DailyStatController.swift */,
 			);
 			path = DailyStats;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1778492A20C570BF006C0D6D /* ViewControllerProtocol.swift in Sources */,
+				17D010A420C7D77D00C20E96 /* DailyStatController.swift in Sources */,
 				1778492620C56E36006C0D6D /* Auth.swift in Sources */,
 				170587C720C6C1E4002D0C95 /* OptionsController.swift in Sources */,
 				170587B720C681CB002D0C95 /* TotalStatController.swift in Sources */,

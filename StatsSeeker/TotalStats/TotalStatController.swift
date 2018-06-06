@@ -31,11 +31,11 @@ class TotalStatController: UITableViewController {
         super.viewDidLoad()
 
         let menuView = BTNavigationDropdownMenu(title: itemsMenu[0], items: itemsMenu as [AnyObject])
-        menuView.arrowTintColor = UIColor.init(red: 0/255, green: 250/255, blue: 146/255, alpha: 1)
+        menuView.arrowTintColor = appConfig.shared.textColor
         menuView.cellBackgroundColor = UIColor.white
         menuView.cellSelectionColor = UIColor.white
         menuView.cellTextLabelAlignment = .center
-        menuView.cellTextLabelColor = UIColor.init(displayP3Red: 0/255, green: 84/255, blue: 147/255, alpha: 1)
+        menuView.cellTextLabelColor = appConfig.shared.textColor
         menuView.selectedCellTextLabelColor = UIColor.red
         menuView.cellTextLabelFont = UIFont.boldSystemFont(ofSize: 15)
         menuView.navigationBarTitleFont = UIFont.boldSystemFont(ofSize: 17)

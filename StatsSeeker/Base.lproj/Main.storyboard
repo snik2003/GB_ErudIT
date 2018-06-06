@@ -85,7 +85,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Q0b-Dm-JA1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="13"/>
                                         <state key="normal" title="Войти">
                                             <color key="titleColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -100,7 +100,7 @@
                                             <constraint firstAttribute="height" constant="25" id="jT7-o5-vaN"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="sns-e1-zDt"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="11"/>
                                         <state key="normal" title="Забыли пароль?">
                                             <color key="titleColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -188,16 +188,119 @@
         <!--Ежедневная статистика-->
         <scene sceneID="2cP-Af-EuU">
             <objects>
-                <viewController id="o0w-4E-Xl7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="S3C-94-Hrf">
+                <viewController storyboardIdentifier="DailyStatController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o0w-4E-Xl7" customClass="DailyStatController" customModule="StatsSeeker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="S3C-94-Hrf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Выберите сайт:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qc-CR-7EK">
+                                <rect key="frame" x="10" y="84" width="355" height="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="32l-4B-evS"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Выберите слово:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1eJ-fV-7Y1">
+                                <rect key="frame" x="10" y="129" width="355" height="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zFm-58-IDs"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Начальная дата:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-xR-hmh">
+                                <rect key="frame" x="10" y="189" width="355" height="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lUB-a3-Jei"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Конечная дата:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T4I-wf-EHq">
+                                <rect key="frame" x="10" y="234" width="355" height="30"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="K9b-0Z-3CZ"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kQt-D4-yBh">
+                                <rect key="frame" x="10" y="448" width="355" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="OJs-iP-JJZ"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="549971343.69887996">
+                                    <!--2018-06-06 09:49:03 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nxx-mM-WsW">
+                                <rect key="frame" x="10" y="448" width="355" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="8rX-LC-2se"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="549971343.69887996">
+                                    <!--2018-06-06 09:49:03 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6D-1M-ntZ">
+                                <rect key="frame" x="10" y="294" width="355" height="30"/>
+                                <color key="backgroundColor" red="0.14562258119999999" green="0.42388910060000001" blue="0.63527506590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fct-6i-5sb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="12"/>
+                                <state key="normal" title="Показать статистику">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="bottom" secondItem="kQt-D4-yBh" secondAttribute="bottom" constant="10" id="1Nv-dg-bgQ"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="1eJ-fV-7Y1" secondAttribute="trailing" constant="10" id="2He-JY-bte"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="sJe-xR-hmh" secondAttribute="trailing" constant="10" id="GCj-bL-qzG"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="6qc-CR-7EK" secondAttribute="trailing" constant="10" id="Gc0-bh-pd4"/>
+                            <constraint firstItem="1eJ-fV-7Y1" firstAttribute="top" secondItem="6qc-CR-7EK" secondAttribute="bottom" constant="15" id="Hgf-mC-Cbp"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="bottom" secondItem="nxx-mM-WsW" secondAttribute="bottom" constant="10" id="Kym-DV-OPS"/>
+                            <constraint firstItem="sJe-xR-hmh" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="Mty-rW-58C"/>
+                            <constraint firstItem="6qc-CR-7EK" firstAttribute="top" secondItem="ecr-Hx-T8G" secondAttribute="top" constant="20" id="NnE-NR-AFI"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="kQt-D4-yBh" secondAttribute="trailing" constant="10" id="Qzy-rZ-WA7"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="X6D-1M-ntZ" secondAttribute="trailing" constant="10" id="SP1-tg-bMl"/>
+                            <constraint firstItem="X6D-1M-ntZ" firstAttribute="top" secondItem="T4I-wf-EHq" secondAttribute="bottom" constant="30" id="Tkd-ro-ZyR"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="T4I-wf-EHq" secondAttribute="trailing" constant="10" id="U6p-Do-Htm"/>
+                            <constraint firstItem="1eJ-fV-7Y1" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="XMP-Ui-hdv"/>
+                            <constraint firstItem="kQt-D4-yBh" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="fxp-L9-Prn"/>
+                            <constraint firstItem="6qc-CR-7EK" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="hks-yC-6rJ"/>
+                            <constraint firstItem="T4I-wf-EHq" firstAttribute="top" secondItem="sJe-xR-hmh" secondAttribute="bottom" constant="15" id="hoi-pD-Waw"/>
+                            <constraint firstItem="sJe-xR-hmh" firstAttribute="top" secondItem="1eJ-fV-7Y1" secondAttribute="bottom" constant="30" id="nnd-2Z-e89"/>
+                            <constraint firstItem="X6D-1M-ntZ" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="rnH-TQ-diA"/>
+                            <constraint firstItem="T4I-wf-EHq" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="ssg-SC-XCv"/>
+                            <constraint firstItem="ecr-Hx-T8G" firstAttribute="trailing" secondItem="nxx-mM-WsW" secondAttribute="trailing" constant="10" id="tQW-s0-mz4"/>
+                            <constraint firstItem="nxx-mM-WsW" firstAttribute="leading" secondItem="ecr-Hx-T8G" secondAttribute="leading" constant="10" id="yya-RS-lFj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ecr-Hx-T8G"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ежедневная статистика" id="pbj-Sn-rrL">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="XdC-hX-kby"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="beginDateTextField" destination="sJe-xR-hmh" id="YkP-Ka-BAT"/>
+                        <outlet property="datePicker1" destination="kQt-D4-yBh" id="E8A-fg-WES"/>
+                        <outlet property="datePicker2" destination="nxx-mM-WsW" id="O2V-4J-5og"/>
+                        <outlet property="endDateTextField" destination="T4I-wf-EHq" id="ksg-UX-jyX"/>
+                        <outlet property="siteTextField" destination="6qc-CR-7EK" id="wkm-HK-Zzx"/>
+                        <outlet property="statButton" destination="X6D-1M-ntZ" id="JgO-C2-z8P"/>
+                        <outlet property="wordTextField" destination="1eJ-fV-7Y1" id="dZm-L3-Z0B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjx-PX-XL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

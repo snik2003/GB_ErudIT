@@ -128,7 +128,7 @@ class StatPresenterController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath)
 
-        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = "\(indexPath.row+1). \(names[indexPath.row])"
         
         if let rank = result[names[indexPath.row]] {
             cell.detailTextLabel?.text = "\(rank)"
