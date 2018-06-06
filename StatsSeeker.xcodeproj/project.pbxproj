@@ -112,8 +112,7 @@
 			children = (
 				170587BD20C693D1002D0C95 /* Objects */,
 				170587B820C68F56002D0C95 /* WebService */,
-				1778493120C58A0B006C0D6D /* TotalStats */,
-				1778493220C58A15006C0D6D /* DailyStats */,
+				17D010A520C82FB700C20E96 /* Statistics */,
 				1778493020C589FB006C0D6D /* Options */,
 				1778492820C57098006C0D6D /* Protocols */,
 				1778492420C568D2006C0D6D /* Authorization */,
@@ -163,21 +162,14 @@
 			path = Options;
 			sourceTree = "<group>";
 		};
-		1778493120C58A0B006C0D6D /* TotalStats */ = {
+		17D010A520C82FB700C20E96 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
 				170587B620C681CB002D0C95 /* TotalStatController.swift */,
+				17D010A320C7D77D00C20E96 /* DailyStatController.swift */,
 				170587C220C69E91002D0C95 /* StatPresenterController.swift */,
 			);
-			path = TotalStats;
-			sourceTree = "<group>";
-		};
-		1778493220C58A15006C0D6D /* DailyStats */ = {
-			isa = PBXGroup;
-			children = (
-				17D010A320C7D77D00C20E96 /* DailyStatController.swift */,
-			);
-			path = DailyStats;
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 		4279BF66AA45CC2FFA76BF63 /* Frameworks */ = {
