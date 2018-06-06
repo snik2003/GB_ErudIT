@@ -135,14 +135,14 @@ class StatPresenterController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if names.count > 0 || self.beginDate != nil {
-            return 10
+            return 5
         }
         return 0
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if names.count > 0 {
-            return 10
+            return 5
         }
         return 0
     }
@@ -189,10 +189,36 @@ class StatPresenterController: UITableViewController {
             dateLabel.text = "Период: \(dateFormatter2.string(from: date1)) — \(dateFormatter2.string(from: date2))"
             dateLabel.startConfigure()
             dateLabel.setColorText(fullString: dateLabel.text!, colorString1: dateFormatter2.string(from: date1), colorString2: dateFormatter2.string(from: date2))
-            dateLabel.frame = CGRect(x: 10, y: 45, width: UIScreen.main.bounds.width-20, height: 20)
+            dateLabel.frame = CGRect(x: 10, y: 25, width: UIScreen.main.bounds.width-20, height: 20)
             tview.addSubview(dateLabel)
             
-            tview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70)
+            tview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
+            self.tableView.tableHeaderView = tview
+        } else if let site = self.site {
+            let tview = UIView()
+            tview.backgroundColor = appConfig.shared.backColor
+            
+            let paramLabel = UILabel()
+            paramLabel.text = "cайт \(site.name)"
+            paramLabel.startConfigure()
+            paramLabel.setColorText(fullString: paramLabel.text!, colorString1: site.name, colorString2: "")
+            paramLabel.frame = CGRect(x: 10, y: 5, width: UIScreen.main.bounds.width-20, height: 20)
+            tview.addSubview(paramLabel)
+            
+            tview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30)
+            self.tableView.tableHeaderView = tview
+        } else if let word = self.word {
+            let tview = UIView()
+            tview.backgroundColor = appConfig.shared.backColor
+            
+            let paramLabel = UILabel()
+            paramLabel.text = "cлово \(word.name)"
+            paramLabel.startConfigure()
+            paramLabel.setColorText(fullString: paramLabel.text!, colorString1: "", colorString2: word.name)
+            paramLabel.frame = CGRect(x: 10, y: 5, width: UIScreen.main.bounds.width-20, height: 20)
+            tview.addSubview(paramLabel)
+            
+            tview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30)
             self.tableView.tableHeaderView = tview
         }
     }
@@ -200,7 +226,7 @@ class StatPresenterController: UITableViewController {
 
 extension UILabel {
     func startConfigure() {
-        self.font = UIFont(name: "Verdana", size: 12)
+        self.font = UIFont(name: "Verdana", size: 13)
         self.textAlignment = .center
         self.adjustsFontSizeToFitWidth = true
         self.minimumScaleFactor = 0.5
@@ -211,8 +237,8 @@ extension UILabel {
         let rangeOfColoredString2 = (fullString as NSString).range(of: colorString2)
         
         let attributedString = NSMutableAttributedString(string: fullString)
-        attributedString.setAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont(name: "Verdana-Bold", size: 12)!], range: rangeOfColoredString1)
-        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont(name: "Verdana-Bold", size: 12)!], range: rangeOfColoredString2)
+        attributedString.setAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont(name: "Verdana-Bold", size: 13)!], range: rangeOfColoredString1)
+        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont(name: "Verdana-Bold", size: 13)!], range: rangeOfColoredString2)
         
         self.attributedText = attributedString
     }

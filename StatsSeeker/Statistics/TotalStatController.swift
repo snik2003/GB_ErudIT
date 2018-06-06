@@ -114,14 +114,14 @@ class TotalStatController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if names.count > 0 {
-            return 10
+            return 5
         }
         return 0
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if names.count > 0 {
-            return 10
+            return 5
         }
         return 0
     }
@@ -154,9 +154,9 @@ class TotalStatController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.statType == "sites" {
-            self.openStatPresenter(site: sites[indexPath.row], word: nil, title: "Сайт «\(sites[indexPath.row].name)»")
+            self.openStatPresenter(site: sites[indexPath.row], word: nil, title: itemsMenu[0])
         } else if self.statType == "persons" {
-            self.openStatPresenter(site: nil, word: words[indexPath.row], title: "Слово «\(words[indexPath.row].name)»")
+            self.openStatPresenter(site: nil, word: words[indexPath.row], title: itemsMenu[1])
         }
     }
 }
