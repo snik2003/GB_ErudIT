@@ -48,7 +48,7 @@ class OptionsController: UITableViewController {
         
         // about company
         if indexPath.section == 0 && indexPath.row == 2 {
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let alertController = UIAlertController(title: appConfig.shared.appSite, message: nil, preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
             alertController.addAction(cancelAction)
