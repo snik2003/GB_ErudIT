@@ -34,7 +34,7 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }()
     
@@ -223,6 +223,21 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
     
     @IBAction func tapStatButton(sender: UIButton) {
         hideKeyboard()
+        
+        if let date1 = dateFormatter.date(from: beginDateTextField.text!), let date2 = dateFormatter.date(from: endDateTextField.text!) {
+            let controller = storyboard?.instantiateViewController(withIdentifier: "StatPresenterController") as! StatPresenterController
+            
+            controller.site = sites[siteIndex]
+            controller.word = words[wordIndex]
+            
+            controller.beginDate = date1
+            controller.endDate = date2
+            controller.title = "Ежедневная статистика"
+            
+            self.navigationController?.pushViewController(controller, animated: true)
+        } else {
+            self.showErrorMessage(title: "Ежедневная статистика", msg: "Ошибка! Неверный формат начальных значений дат.")
+        }
     }
 }
 

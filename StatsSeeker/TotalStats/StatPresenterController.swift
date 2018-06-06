@@ -8,16 +8,32 @@
 
 import UIKit
 import SwiftyJSON
+import Alamofire
 
 class StatPresenterController: UITableViewController {
 
     var site: Site?
     var word: Word?
     
+    var beginDate: Date?
+    var endDate: Date?
+    
     var ranks: [Rank] = []
     
     var result: [String: Int] = [:]
     var names: [String] = []
+    
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd0000"
+        return dateFormatter
+    }()
+    
+    let dateFormatter2: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter
+    }()
     
     let queue: OperationQueue = {
         let queue = OperationQueue()
@@ -28,6 +44,7 @@ class StatPresenterController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createTableViewHeader()
         getStat()
     }
 
@@ -43,8 +60,16 @@ class StatPresenterController: UITableViewController {
         tableView.separatorStyle = .none
         ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
         
-        let url = "persons/rank"
-        let getServerData = GetServerDataOperation(url: url, parameters: nil)
+        var url = "persons/rank"
+        var parameters: Parameters? = nil
+        if let date1 = beginDate, let date2 = endDate {
+            url = "persons/rank/date"
+            parameters = [
+                "_from": dateFormatter.string(from: date1),
+                "_till": dateFormatter.string(from: date2)
+            ]
+        }
+        let getServerData = GetServerDataOperation(url: url, parameters: parameters)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             
@@ -54,7 +79,7 @@ class StatPresenterController: UITableViewController {
             self.ranks = json.compactMap({ Rank(json: $0.1) })
             
             for rank in self.ranks {
-                if let site = self.site {
+                if let site = self.site, self.word == nil {
                     if rank.siteID == site.id {
                         if let num = self.result[rank.wordName] {
                             self.result[rank.wordName] = num + rank.rank
@@ -63,13 +88,24 @@ class StatPresenterController: UITableViewController {
                             self.names.append(rank.wordName)
                         }
                     }
-                } else if let word = self.word {
+                } else if self.site == nil, let word = self.word {
                     if rank.wordID == word.id {
                         if let num = self.result[rank.siteName] {
                             self.result[rank.siteName] = num + rank.rank
                         } else {
                             self.result[rank.siteName] = rank.rank
                             self.names.append(rank.siteName)
+                        }
+                    }
+                } else if let site = self.site, let word = self.word {
+                    if rank.siteID == site.id, rank.wordID == word.id {
+                        
+                        let strDate = rank.foundDateTime.components(separatedBy: " ")[0]
+                        if let num = self.result[strDate] {
+                            self.result[strDate] = num + rank.rank
+                        } else {
+                            self.result[strDate] = rank.rank
+                            self.names.append(strDate)
                         }
                     }
                 }
@@ -98,7 +134,7 @@ class StatPresenterController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if names.count > 0 {
+        if names.count > 0 || self.beginDate != nil {
             return 10
         }
         return 0
@@ -135,5 +171,49 @@ class StatPresenterController: UITableViewController {
         }
         
         return cell
+    }
+    
+    func createTableViewHeader() {
+        if let date1 = self.beginDate, let date2 = self.endDate, let site = self.site, let word = self.word {
+            let tview = UIView()
+            tview.backgroundColor = appConfig.shared.backColor
+            
+            let paramLabel = UILabel()
+            paramLabel.text = "cайт \(site.name), cлово \(word.name)"
+            paramLabel.startConfigure()
+            paramLabel.setColorText(fullString: paramLabel.text!, colorString1: site.name, colorString2: word.name)
+            paramLabel.frame = CGRect(x: 10, y: 5, width: UIScreen.main.bounds.width-20, height: 20)
+            tview.addSubview(paramLabel)
+            
+            let dateLabel = UILabel()
+            dateLabel.text = "Период: \(dateFormatter2.string(from: date1)) — \(dateFormatter2.string(from: date2))"
+            dateLabel.startConfigure()
+            dateLabel.setColorText(fullString: dateLabel.text!, colorString1: dateFormatter2.string(from: date1), colorString2: dateFormatter2.string(from: date2))
+            dateLabel.frame = CGRect(x: 10, y: 45, width: UIScreen.main.bounds.width-20, height: 20)
+            tview.addSubview(dateLabel)
+            
+            tview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70)
+            self.tableView.tableHeaderView = tview
+        }
+    }
+}
+
+extension UILabel {
+    func startConfigure() {
+        self.font = UIFont(name: "Verdana", size: 12)
+        self.textAlignment = .center
+        self.adjustsFontSizeToFitWidth = true
+        self.minimumScaleFactor = 0.5
+    }
+    
+    func setColorText(fullString: String, colorString1: String, colorString2: String) {
+        let rangeOfColoredString1 = (fullString as NSString).range(of: colorString1)
+        let rangeOfColoredString2 = (fullString as NSString).range(of: colorString2)
+        
+        let attributedString = NSMutableAttributedString(string: fullString)
+        attributedString.setAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont(name: "Verdana-Bold", size: 12)!], range: rangeOfColoredString1)
+        attributedString.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue, NSAttributedStringKey.font: UIFont(name: "Verdana-Bold", size: 12)!], range: rangeOfColoredString2)
+        
+        self.attributedText = attributedString
     }
 }

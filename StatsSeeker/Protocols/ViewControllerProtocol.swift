@@ -18,6 +18,8 @@ protocol ViewControllerProtocol {
     func showInfoMessage(title: String, msg: String)
     
     func jsonErrorMessage()
+    
+    func openStatPresenter(site: Site?, word: Word?, title: String)
 }
 
 extension UIViewController: ViewControllerProtocol {
