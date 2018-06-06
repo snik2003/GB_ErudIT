@@ -158,7 +158,6 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
         
         if textField == beginDateTextField {
             datePicker1.startConfigure()
-            //datePicker1.setValue(textField.textColor, forKeyPath: "textColor")
             
             if let text = textField.text, let date = dateFormatter.date(from: text) {
                 datePicker1.date = date
@@ -173,7 +172,6 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
             
         } else if textField == endDateTextField {
             datePicker2.startConfigure()
-            //datePicker2.setValue(textField.textColor, forKeyPath: "textColor")
             
             if let text = textField.text, let date = dateFormatter.date(from: text) {
                 datePicker2.date = date
@@ -202,8 +200,6 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
     func hideDatePickers() {
         datePicker1.isHidden = true
         datePicker2.isHidden = true
-        beginDateTextField.endEditing(false)
-        endDateTextField.endEditing(false)
     }
     
     func checkActiveStatButton() {
@@ -223,6 +219,10 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
             statButton.setTitleColor(UIColor.lightGray, for: .normal)
             statButton.isEnabled = false
         }
+    }
+    
+    @IBAction func tapStatButton(sender: UIButton) {
+        hideKeyboard()
     }
 }
 
