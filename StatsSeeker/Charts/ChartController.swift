@@ -35,7 +35,7 @@ class ChartController: UIViewController {
         barChartView.chartDescription?.text = descriptionLabel
         barChartView.chartDescription?.position = CGPoint(x: self.view.bounds.width/2, y: 10)
         barChartView.chartDescription?.textAlign = .center
-        barChartView.chartDescription?.font = UIFont(name: "Verdana", size: 13)!
+        barChartView.chartDescription?.font = UIFont(name: "Verdana", size: 12)!
         
         barChartView.backgroundColor = UIColor.white
         barChartView.layer.borderWidth = 0.7
