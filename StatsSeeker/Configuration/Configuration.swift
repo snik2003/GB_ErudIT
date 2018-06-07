@@ -14,6 +14,7 @@ final class appConfig {
     let appName = "ЭрудIT"
     let appSite = "https://dtgb.solutions"
     
+    let tintColor = UIColor.init(red: 52/255, green: 125/255, blue: 178/255, alpha: 1)
     let backColor = UIColor.init(red: 200/255, green: 229/255, blue: 239/255, alpha: 1)
     let textColor = UIColor.init(red: 0/255, green: 250/255, blue: 146/255, alpha: 1)
     
