@@ -35,7 +35,7 @@ class ChartController: UIViewController {
         barChartView.chartDescription?.text = descriptionLabel
         barChartView.chartDescription?.position = CGPoint(x: self.view.bounds.width/2, y: 10)
         barChartView.chartDescription?.textAlign = .center
-        barChartView.chartDescription?.font = UIFont(name: "Verdana-Bold", size: 11)!
+        barChartView.chartDescription?.font = UIFont(name: "Verdana", size: 13)!
         
         barChartView.backgroundColor = UIColor.white
         barChartView.layer.borderWidth = 0.7
@@ -87,11 +87,9 @@ class ChartController: UIViewController {
                 chartDataSet.colors = ChartColorTemplates.pastel()
             }
             
-            chartDataSet.valueFont = UIFont(name: "Verdana-Bold", size: 12)!
+            chartDataSet.valueFont = UIFont(name: "Verdana-Bold", size: 10)!
             chartDataSets.append(chartDataSet)
         }
-        
-        
         
         let chartData = BarChartData(dataSets: chartDataSets)
         barChartView.data = chartData
