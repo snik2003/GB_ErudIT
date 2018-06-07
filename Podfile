@@ -15,4 +15,5 @@ target 'StatsSeeker' do
   pod 'SwiftMessages'
   pod 'Popover'
   pod 'BTNavigationDropdownMenu', '~> 0.4'
+  pod 'Charts'
 end

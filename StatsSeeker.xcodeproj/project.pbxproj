@@ -21,6 +21,7 @@
 		172971C020C3E36E0020B5F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172971BE20C3E36E0020B5F9 /* Main.storyboard */; };
 		172971C220C3E36F0020B5F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172971C120C3E36F0020B5F9 /* Assets.xcassets */; };
 		172971C520C3E36F0020B5F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172971C320C3E36F0020B5F9 /* LaunchScreen.storyboard */; };
+		1751B9E420C96676007719C9 /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1751B9E320C96676007719C9 /* ChartController.swift */; };
 		1778492020C53DF9006C0D6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778491F20C53DF9006C0D6D /* LoginViewController.swift */; };
 		1778492220C55C7F006C0D6D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492120C55C7F006C0D6D /* Configuration.swift */; };
 		1778492620C56E36006C0D6D /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778492520C56E36006C0D6D /* Auth.swift */; };
@@ -46,6 +47,7 @@
 		172971C120C3E36F0020B5F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		172971C420C3E36F0020B5F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		172971C620C3E36F0020B5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1751B9E320C96676007719C9 /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
 		1778491F20C53DF9006C0D6D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1778492120C55C7F006C0D6D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1778492520C56E36006C0D6D /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		172971B920C3E36E0020B5F9 /* StatsSeeker */ = {
 			isa = PBXGroup;
 			children = (
+				1751B9E220C9665C007719C9 /* Charts */,
 				170587BD20C693D1002D0C95 /* Objects */,
 				170587B820C68F56002D0C95 /* WebService */,
 				17D010A520C82FB700C20E96 /* Statistics */,
@@ -127,6 +130,14 @@
 				172971C120C3E36F0020B5F9 /* Assets.xcassets */,
 			);
 			path = StatsSeeker;
+			sourceTree = "<group>";
+		};
+		1751B9E220C9665C007719C9 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				1751B9E320C96676007719C9 /* ChartController.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 		1778492320C568B2006C0D6D /* Configuration */ = {
@@ -268,6 +279,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/BTNavigationDropdownMenu/BTNavigationDropdownMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -281,6 +293,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BTNavigationDropdownMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -325,6 +338,7 @@
 				170587C720C6C1E4002D0C95 /* OptionsController.swift in Sources */,
 				170587B720C681CB002D0C95 /* TotalStatController.swift in Sources */,
 				170587C520C6A656002D0C95 /* Rank.swift in Sources */,
+				1751B9E420C96676007719C9 /* ChartController.swift in Sources */,
 				1778492020C53DF9006C0D6D /* LoginViewController.swift in Sources */,
 				170587C320C69E91002D0C95 /* StatPresenterController.swift in Sources */,
 				172971BD20C3E36E0020B5F9 /* ViewController.swift in Sources */,

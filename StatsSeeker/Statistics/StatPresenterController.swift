@@ -23,6 +23,8 @@ class StatPresenterController: UITableViewController {
     var result: [String: Int] = [:]
     var names: [String] = []
     
+    var descriptionLabel = ""
+    
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd0000"
@@ -189,6 +191,7 @@ class StatPresenterController: UITableViewController {
             
             let paramLabel = UILabel()
             paramLabel.text = "cайт \(site.name), cлово \(word.name)"
+            descriptionLabel = "cайт «\(site.name)», cлово «\(word.name)»"
             paramLabel.startConfigure()
             paramLabel.setColorText(fullString: paramLabel.text!, colorString1: site.name, colorString2: word.name, color: appConfig.shared.textColor)
             paramLabel.frame = CGRect(x: 10, y: 5, width: UIScreen.main.bounds.width-20, height: 20)
@@ -215,6 +218,7 @@ class StatPresenterController: UITableViewController {
             
             let paramLabel = UILabel()
             paramLabel.text = "cайт \(site.name)"
+            descriptionLabel = "cайт «\(site.name)»"
             paramLabel.startConfigure()
             paramLabel.setColorText(fullString: paramLabel.text!, colorString1: site.name, colorString2: "", color: appConfig.shared.textColor)
             paramLabel.frame = CGRect(x: 10, y: 5, width: UIScreen.main.bounds.width-20, height: 20)
@@ -234,6 +238,7 @@ class StatPresenterController: UITableViewController {
             
             let paramLabel = UILabel()
             paramLabel.text = "cлово \(word.name)"
+            descriptionLabel = "cлово «\(word.name)»"
             paramLabel.startConfigure()
             paramLabel.setColorText(fullString: paramLabel.text!, colorString1: "", colorString2: word.name, color: appConfig.shared.textColor)
             paramLabel.frame = CGRect(x: 10, y: 5, width: UIScreen.main.bounds.width-20, height: 20)
@@ -255,7 +260,9 @@ class StatPresenterController: UITableViewController {
     }
     
     @objc func tapBarButtonItem(sender: UIBarButtonItem) {
-        
+        if let title = self.title {
+            self.openChartController(data: result, names: names, description: descriptionLabel, title: title)
+        }
     }
 }
 

@@ -2,6 +2,9 @@ PODS:
   - Alamofire (4.7.2)
   - BEMCheckBox (1.4.1)
   - BTNavigationDropdownMenu (0.4.1)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - DropDown (2.3.2)
   - Popover (1.2.0)
   - Realm (3.5.0):
@@ -19,6 +22,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.5)
   - BEMCheckBox
   - BTNavigationDropdownMenu (~> 0.4)
+  - Charts
   - DropDown
   - Popover
   - RealmSwift (~> 3.0)
@@ -31,6 +35,7 @@ SPEC REPOS:
     - Alamofire
     - BEMCheckBox
     - BTNavigationDropdownMenu
+    - Charts
     - DropDown
     - Popover
     - Realm
@@ -43,6 +48,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   BTNavigationDropdownMenu: 093f3cbfad1572f2c222bdf8d17584d1e13380d4
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   Popover: 28c1ac8e937ab2b3965bd2da7dd18324357abc41
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
@@ -51,6 +57,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 5f5ad8177cec8ee6fd318da5db45defb911f2d19
+PODFILE CHECKSUM: cf7aae7ffd2e64a51799390d40ce1e98c532c4c7
 
 COCOAPODS: 1.5.0

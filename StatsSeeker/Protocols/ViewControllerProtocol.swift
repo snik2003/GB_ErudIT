@@ -92,6 +92,19 @@ extension UIViewController: ViewControllerProtocol {
         controller.word = word
         controller.title = title
         
+        self.navigationController?.navigationItem.leftBarButtonItem?.title = "Назад"
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func openChartController(data: [String: Int], names: [String], description: String, title: String) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "ChartController") as! ChartController
+        
+        controller.data = data
+        controller.names = names
+        controller.descriptionLabel = description
+        controller.title = title
+        
+        self.navigationController?.navigationItem.leftBarButtonItem?.title = "Назад"
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
