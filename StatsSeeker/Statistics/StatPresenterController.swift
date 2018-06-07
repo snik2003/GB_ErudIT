@@ -118,6 +118,9 @@ class StatPresenterController: UITableViewController {
                     self.showErrorMessage(title: title, msg: "Ошибка! В базе данных отсутствует информация по данному виду статистики.")
                 } else {
                     self.tableView.separatorStyle = .singleLine
+                    
+                    let barButton = UIBarButtonItem(image: UIImage(named: "chart_button"), style: .plain, target: self, action: #selector(self.tapBarButtonItem(sender:)))
+                    self.navigationItem.rightBarButtonItem = barButton
                 }
             }
         }
@@ -249,6 +252,10 @@ class StatPresenterController: UITableViewController {
         tview.backgroundColor = UIColor.white
         
         return tview
+    }
+    
+    @objc func tapBarButtonItem(sender: UIBarButtonItem) {
+        
     }
 }
 
