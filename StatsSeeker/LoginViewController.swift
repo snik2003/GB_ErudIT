@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var logoImageView: UIImageView!
@@ -20,6 +20,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loginTextField.delegate = self
+        passTextField.delegate = self
+        
+        loginTextField.addTarget(self, action: #selector(checkActiveAuthButton), for: .editingChanged)
+        passTextField.addTarget(self, action: #selector(checkActiveAuthButton), for: .editingChanged)
+        
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
@@ -84,6 +90,16 @@ class LoginViewController: UIViewController {
         self.scrollView?.endEditing(true)
     }
     
+    @objc func checkActiveAuthButton() {
+        if loginTextField.text != "", passTextField.text != "" {
+            authButton.setTitleColor(appConfig.shared.textColor, for: .normal)
+            authButton.isEnabled = true
+        } else {
+            authButton.setTitleColor(UIColor.lightGray, for: .normal)
+            authButton.isEnabled = false
+        }
+    }
+    
     @IBAction func authButtonClick(sender: UIButton) {
         self.hideKeyboard()
         
@@ -101,6 +117,19 @@ class LoginViewController: UIViewController {
         self.hideKeyboard()
         
         self.showErrorMessage(title: "Забыли пароль?", msg: "Функция восстановления пароля доступна только в платной версии приложения.\n\nДля восстановления пароля обратитесь к Администратору системы.")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginTextField {
+            passTextField.becomeFirstResponder()
+        } else if textField == passTextField {
+            if authButton.isEnabled {
+                authButtonClick(sender: authButton)
+            } else {
+                loginTextField.becomeFirstResponder()
+            }
+        }
+        return true
     }
 }
 
