@@ -37,8 +37,8 @@ class TotalStatController: UITableViewController {
         menuView.cellTextLabelAlignment = .center
         menuView.cellTextLabelColor = UIColor.black
         menuView.selectedCellTextLabelColor = UIColor.red
-        menuView.cellTextLabelFont = UIFont.boldSystemFont(ofSize: 15)
-        menuView.navigationBarTitleFont = UIFont.boldSystemFont(ofSize: 17)
+        menuView.cellTextLabelFont = UIFont.boldSystemFont(ofSize: 14)
+        menuView.navigationBarTitleFont = UIFont.boldSystemFont(ofSize: 15)
         navigationItem.titleView = menuView
         
         menuView.didSelectItemAtIndexHandler = {[weak self] (indexPath: Int) -> () in
