@@ -13,43 +13,30 @@ class Auth {
     
     var delegate: UIViewController!
     
-    func autorization(_ login: String, _ pass: String) -> Bool {
-        //return false
+    func autorization(_ login: String, _ pass: String, completion: @escaping (Int) -> ()) {
         
-        var userID = 3
-        if login.lowercased() == "admin1" {
-            userID = 1
-        } else if login.lowercased() == "admin2" {
-            userID = 2
-        }
-        
-        saveUserData(userID: userID)
-        
-        return true
-    }
-    
-    func saveUserData(userID: Int) {
-        
-        let url = "users/\(userID)"
-        let getServerData = GetServerDataOperation(url: url, parameters: nil)
+        var userID = 0
+        let getServerData = GetServerDataOperation(url: "users", parameters: nil)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
             //print(json)
             
-            var user = AppUser()
-            user.id = json["id"].intValue
-            user.isAdmin = json["isAdmin"].intValue
-            user.login = json["login"].stringValue
-            user.email = json["email"].stringValue
-            if user.isAdmin == 1 {
-                user.addedBy = user.id
-            } else {
-                user.addedBy = json["addedBy"].intValue
+            let users = json.compactMap({ User(json: $0.1) })
+            for user in users {
+                if login.lowercased() == user.login.lowercased() {
+                    if pass == "123456" {
+                        appConfig.shared.appUser = user
+                        self.saveDefaults()
+                        userID = user.id
+                    } else {
+                        userID = 0
+                    }
+                }
             }
-            appConfig.shared.appUser = user
-            self.saveDefaults()
+            
+            completion(userID)
         }
         OperationQueue().addOperation(getServerData)
     }
@@ -63,7 +50,7 @@ class Auth {
     func getDefaults() -> Bool {
         
         if let user = UserDefaults.standard.object(forKey: appConfig.shared.appUserDefaultsKeyName) as? Data {
-            if let loadUser = try? JSONDecoder().decode(AppUser.self, from: user) {
+            if let loadUser = try? JSONDecoder().decode(User.self, from: user) {
                 appConfig.shared.appUser = loadUser
                 return true
             }

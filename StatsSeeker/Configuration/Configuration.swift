@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 final class appConfig {
     static let shared = appConfig()
@@ -24,15 +25,5 @@ final class appConfig {
     
     let apiVersion = "v1"
     
-    var appUser = AppUser()
-    
-}
-
-struct AppUser: Codable {
-    var id = 0
-    var isAdmin = 0
-    var addedBy = 0
-    var login = ""
-    var email = ""
-    
+    var appUser = User(json: JSON.null)
 }

@@ -108,11 +108,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let login = loginTextField.text, let pass = passTextField.text {
             let auth = Auth()
             auth.delegate = self
-            if auth.autorization(login, pass) {
-                performSegue(withIdentifier: "goTabBar", sender: self)
-            } else {
-                passTextField?.text = ""
-                self.showErrorMessage(title: "Ошибка авторизации \(login)", msg: "Неверный логин или пароль.\n")
+            auth.autorization(login,pass) { (userID) in
+                OperationQueue.main.addOperation {
+                    if userID > 0 {
+                        self.performSegue(withIdentifier: "goTabBar", sender: self)
+                    } else {
+                        self.passTextField?.text = ""
+                        self.checkActiveAuthButton()
+                        self.failedAuthMessage(login)
+                    }
+                }
             }
         }
     }

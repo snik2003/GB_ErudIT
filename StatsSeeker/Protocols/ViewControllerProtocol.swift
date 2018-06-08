@@ -19,6 +19,8 @@ protocol ViewControllerProtocol {
     
     func jsonErrorMessage()
     
+    func failedAuthMessage(_ login: String)
+    
     func openStatPresenter(site: Site?, word: Word?, title: String)
     
     func openChartController(data: [String: Int], names: [String], description: String, title: String)
@@ -84,6 +86,12 @@ extension UIViewController: ViewControllerProtocol {
         OperationQueue.main.addOperation {
             ViewControllerUtils().hideActivityIndicator()
             self.showErrorMessage(title: "Ошибка в \(appConfig.shared.appName)!", msg: "Ошибка получения данных. Проверьте подключение к Интернету.")
+        }
+    }
+    
+    func failedAuthMessage(_ login: String) {
+        OperationQueue.main.addOperation {
+            self.showErrorMessage(title: "Ошибка авторизации \(login)", msg: "Неверное имя пользователя или пароль. Повторите попытку.\n")
         }
     }
     
