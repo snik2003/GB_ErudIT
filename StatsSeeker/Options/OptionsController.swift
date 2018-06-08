@@ -74,9 +74,10 @@ class OptionsController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
             alertController.addAction(cancelAction)
             
-            let action = UIAlertAction(title: "Сменить пользователя", style: .destructive) { action in
+            let action = UIAlertAction(title: "Выйти из пользователя «\(appConfig.shared.appUser.login)»", style: .destructive) { action in
                 if let controller = self.storyboard?.instantiateViewController(withIdentifier: "StartViewController") as? ViewController {
                 
+                    Auth().removeDefaults()
                     UIApplication.shared.keyWindow?.rootViewController = controller
                 }
             }

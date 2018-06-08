@@ -13,6 +13,7 @@ final class appConfig {
     
     let appName = "ЭрудIT"
     let appSite = "https://dtgb.solutions"
+    let appUserDefaultsKeyName = "ERUDIT_USER"
     
     let tintColor = UIColor.init(red: 52/255, green: 125/255, blue: 178/255, alpha: 1)
     let backColor = UIColor.init(red: 200/255, green: 229/255, blue: 239/255, alpha: 1)
@@ -22,4 +23,16 @@ final class appConfig {
     let apiURL2 = "https://smallapi.dtgb.solutions"
     
     let apiVersion = "v1"
+    
+    var appUser = AppUser()
+    
+}
+
+struct AppUser: Codable {
+    var id = 0
+    var isAdmin = 0
+    var addedBy = 0
+    var login = ""
+    var email = ""
+    
 }

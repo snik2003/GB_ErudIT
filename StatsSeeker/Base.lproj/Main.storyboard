@@ -24,6 +24,7 @@
                     </view>
                     <connections>
                         <segue destination="8fD-Qj-WtM" kind="show" identifier="goLoginForm" id="ibA-fg-iWu"/>
+                        <segue destination="apn-cd-6IC" kind="show" identifier="goTabBar" id="OSc-bm-iPw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -699,4 +700,7 @@
         <image name="site" width="30" height="30"/>
         <image name="total_stat" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OSc-bm-iPw"/>
+    </inferredMetricsTieBreakers>
 </document>

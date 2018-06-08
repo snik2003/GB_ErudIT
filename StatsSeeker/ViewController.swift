@@ -21,7 +21,11 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        performSegue(withIdentifier: "goLoginForm", sender: self)
+        if Auth().getDefaults() {
+            performSegue(withIdentifier: "goTabBar", sender: self)
+        } else {
+            performSegue(withIdentifier: "goLoginForm", sender: self)
+        }
     }
 }
 

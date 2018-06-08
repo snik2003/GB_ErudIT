@@ -106,7 +106,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboard()
         
         if let login = loginTextField.text, let pass = passTextField.text {
-            if Auth().autorization(login, pass) {
+            let auth = Auth()
+            auth.delegate = self
+            if auth.autorization(login, pass) {
                 performSegue(withIdentifier: "goTabBar", sender: self)
             } else {
                 passTextField?.text = ""
