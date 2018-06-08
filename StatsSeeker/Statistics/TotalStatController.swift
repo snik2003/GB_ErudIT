@@ -73,7 +73,7 @@ class TotalStatController: UITableViewController {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.jsonErrorMessage(); return }
-            print(json)
+            //print(json)
             
             if self.statType == "sites" {
                 self.sites = json.compactMap { Site(json: $0.1) }

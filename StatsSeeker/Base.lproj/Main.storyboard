@@ -63,7 +63,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user1" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OTg-0W-WC3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OTg-0W-WC3">
                                         <rect key="frame" x="40" y="380" width="295" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Yay-eV-bXW"/>
@@ -72,7 +72,7 @@
                                         <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aze-5s-9k7">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aze-5s-9k7">
                                         <rect key="frame" x="40" y="420" width="295" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dbH-UC-DgJ"/>
@@ -701,6 +701,6 @@
         <image name="total_stat" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OSc-bm-iPw"/>
+        <segue reference="FX8-vp-CDQ"/>
     </inferredMetricsTieBreakers>
 </document>

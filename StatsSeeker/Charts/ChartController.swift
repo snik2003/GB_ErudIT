@@ -48,7 +48,7 @@ class ChartController: UIViewController {
         barChartView.rightAxis.drawLabelsEnabled = false
         barChartView.xAxis.drawGridLinesEnabled = false
         
-        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        barChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
         var values: [Int] = []
         for index in 0...names.count-1 {
