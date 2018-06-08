@@ -10,10 +10,28 @@ import UIKit
 
 class OptionsController: UITableViewController {
 
+    @IBOutlet weak var userCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        if let userLabel = userCell.viewWithTag(1) as? UILabel, let roleLabel = userCell.viewWithTag(2) as? UILabel, let mailLabel = userCell.viewWithTag(3) as? UILabel, let avatar = userCell.viewWithTag(4) as? UIImageView {
+            
+            userLabel.text = appConfig.shared.appUser.login
+            mailLabel.text = appConfig.shared.appUser.email
+            
+            if appConfig.shared.appUser.isAdmin == 0 {
+                roleLabel.text = "Пользователь"
+            } else {
+                roleLabel.text = "Администратор"
+            }
+            
+            avatar.layer.borderWidth = 0.7
+            avatar.layer.borderColor = UIColor.lightGray.cgColor
+            avatar.layer.cornerRadius = 25
+            
+            userCell.isHidden = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,17 +55,17 @@ class OptionsController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // change password
-        if indexPath.section == 0 && indexPath.row == 0 {
+        if indexPath.section == 1 && indexPath.row == 0 {
             self.showErrorMessage(title: "Приложение «\(appConfig.shared.appName)»", msg: "Данный раздел находится в стадии разработки. Приносим извинения за неудобства.")
         }
         
         // options of app
-        if indexPath.section == 0 && indexPath.row == 1 {
+        if indexPath.section == 1 && indexPath.row == 1 {
             self.showErrorMessage(title: "Приложение «\(appConfig.shared.appName)»", msg: "Данный раздел находится в стадии разработки. Приносим извинения за неудобства.")
         }
         
         // about company
-        if indexPath.section == 0 && indexPath.row == 2 {
+        if indexPath.section == 1 && indexPath.row == 2 {
             let alertController = UIAlertController(title: appConfig.shared.appSite, message: nil, preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
@@ -63,12 +81,12 @@ class OptionsController: UITableViewController {
         }
         
         // buy the paid version of app
-        if indexPath.section == 1 && indexPath.row == 0 {
+        if indexPath.section == 2 && indexPath.row == 0 {
             self.showErrorMessage(title: "Приложение «\(appConfig.shared.appName)»", msg: "Данный раздел находится в стадии разработки. Приносим извинения за неудобства.")
         }
         
         // change user
-        if indexPath.section == 2 && indexPath.row == 0 {
+        if indexPath.section == 3 && indexPath.row == 0 {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
@@ -84,5 +102,7 @@ class OptionsController: UITableViewController {
             alertController.addAction(action)
             present(alertController, animated: true)
         }
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

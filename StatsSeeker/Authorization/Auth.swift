@@ -17,9 +17,9 @@ class Auth {
         //return false
         
         var userID = 3
-        if login == "Admin1" {
+        if login.lowercased() == "admin1" {
             userID = 1
-        } else if login == "Admin2" {
+        } else if login.lowercased() == "admin2" {
             userID = 2
         }
         

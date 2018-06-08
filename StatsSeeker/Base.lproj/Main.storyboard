@@ -422,19 +422,119 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
+                            <tableViewSection headerTitle=" " id="CSY-ep-7kb">
+                                <cells>
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="uPL-6y-gxK">
+                                        <rect key="frame" x="0.0" y="5" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uPL-6y-gxK" id="eiw-Wp-Ka9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Логин:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-0u-OON">
+                                                    <rect key="frame" x="70" y="5" width="80" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="KSZ-xr-VvD"/>
+                                                        <constraint firstAttribute="height" constant="20" id="p45-yp-qO6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BrC-7H-AuL">
+                                                    <rect key="frame" x="160" y="5" width="195" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="VuE-xH-aR0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Эл.почта:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSs-hE-brq">
+                                                    <rect key="frame" x="70" y="25" width="80" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="QvB-kj-ftp"/>
+                                                        <constraint firstAttribute="width" constant="80" id="rod-sh-QLZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mail@mail.ru" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="099-bE-UeZ">
+                                                    <rect key="frame" x="160" y="25" width="195" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="EAs-W5-mpT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Роль:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGX-eq-EYe">
+                                                    <rect key="frame" x="70" y="45" width="80" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Hhk-tJ-uyy"/>
+                                                        <constraint firstAttribute="width" constant="80" id="R1g-Jd-8Wc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пользователь" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2hP-Ev-BT5">
+                                                    <rect key="frame" x="160" y="45" width="195" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Af2-rv-8SU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nophoto" translatesAutoresizingMaskIntoConstraints="NO" id="rcr-bx-wyu">
+                                                    <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="geg-ev-fui"/>
+                                                        <constraint firstAttribute="height" constant="50" id="oxC-Db-3Eo"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BrC-7H-AuL" firstAttribute="leading" secondItem="5DU-0u-OON" secondAttribute="trailing" constant="10" id="12l-r4-4Bm"/>
+                                                <constraint firstItem="rcr-bx-wyu" firstAttribute="top" secondItem="eiw-Wp-Ka9" secondAttribute="top" constant="10" id="7nr-c1-Dhh"/>
+                                                <constraint firstItem="rcr-bx-wyu" firstAttribute="leading" secondItem="eiw-Wp-Ka9" secondAttribute="leading" constant="10" id="9Mt-Of-XAB"/>
+                                                <constraint firstItem="2hP-Ev-BT5" firstAttribute="top" secondItem="099-bE-UeZ" secondAttribute="bottom" id="Gaw-5T-8el"/>
+                                                <constraint firstItem="QSs-hE-brq" firstAttribute="top" secondItem="5DU-0u-OON" secondAttribute="bottom" id="MCI-Jg-Z9U"/>
+                                                <constraint firstItem="099-bE-UeZ" firstAttribute="top" secondItem="BrC-7H-AuL" secondAttribute="bottom" id="ZL8-zk-11B"/>
+                                                <constraint firstItem="099-bE-UeZ" firstAttribute="leading" secondItem="QSs-hE-brq" secondAttribute="trailing" constant="10" id="dpx-eK-PPh"/>
+                                                <constraint firstItem="UGX-eq-EYe" firstAttribute="top" secondItem="QSs-hE-brq" secondAttribute="bottom" id="jTK-Eg-up6"/>
+                                                <constraint firstItem="2hP-Ev-BT5" firstAttribute="leading" secondItem="UGX-eq-EYe" secondAttribute="trailing" constant="10" id="v2W-PE-TTM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="5DU-0u-OON" firstAttribute="leading" secondItem="uPL-6y-gxK" secondAttribute="leading" constant="70" id="1QN-ag-vuR"/>
+                                            <constraint firstAttribute="trailing" secondItem="BrC-7H-AuL" secondAttribute="trailing" constant="20" id="8na-Qa-4w5"/>
+                                            <constraint firstItem="5DU-0u-OON" firstAttribute="top" secondItem="uPL-6y-gxK" secondAttribute="top" constant="5" id="Gx8-L0-k87"/>
+                                            <constraint firstItem="QSs-hE-brq" firstAttribute="leading" secondItem="uPL-6y-gxK" secondAttribute="leading" constant="70" id="W1k-PX-EbQ"/>
+                                            <constraint firstItem="UGX-eq-EYe" firstAttribute="leading" secondItem="uPL-6y-gxK" secondAttribute="leading" constant="70" id="WJM-gO-ZFg"/>
+                                            <constraint firstItem="BrC-7H-AuL" firstAttribute="top" secondItem="uPL-6y-gxK" secondAttribute="top" constant="5" id="lgm-Hf-BFO"/>
+                                            <constraint firstAttribute="trailing" secondItem="2hP-Ev-BT5" secondAttribute="trailing" constant="20" id="qOL-r2-xQ0"/>
+                                            <constraint firstAttribute="trailing" secondItem="099-bE-UeZ" secondAttribute="trailing" constant="20" id="yYd-MX-oNK"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle=" " footerTitle=" " id="SBE-In-uZU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="w3v-4W-5u8" detailTextLabel="Slw-Qe-Eqa" imageView="7mj-29-OMq" style="IBUITableViewCellStyleSubtitle" id="998-op-6oc">
-                                        <rect key="frame" x="0.0" y="5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="80" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="998-op-6oc" id="Sw6-km-b0J">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Сменить пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w3v-4W-5u8">
-                                                    <rect key="frame" x="61" y="6" width="117" height="17.5"/>
+                                                    <rect key="frame" x="61" y="4.5" width="108.5" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -443,9 +543,9 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Раздел в разработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Slw-Qe-Eqa">
-                                                    <rect key="frame" x="61" y="23.5" width="129" height="15"/>
+                                                    <rect key="frame" x="61" y="23" width="118.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="11"/>
                                                     <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -454,16 +554,16 @@
                                         <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="VEc-qH-pqm" detailTextLabel="tuD-gT-Muf" imageView="ruc-3c-DKm" style="IBUITableViewCellStyleSubtitle" id="KgN-ac-371">
-                                        <rect key="frame" x="0.0" y="49" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="124" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KgN-ac-371" id="qlz-go-prQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Настройки приложения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VEc-qH-pqm">
-                                                    <rect key="frame" x="61" y="6" width="171.5" height="17.5"/>
+                                                    <rect key="frame" x="61" y="4.5" width="159.5" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -472,9 +572,9 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Раздел в разработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tuD-gT-Muf">
-                                                    <rect key="frame" x="61" y="23.5" width="129" height="15"/>
+                                                    <rect key="frame" x="61" y="23" width="118.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="11"/>
                                                     <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -483,7 +583,7 @@
                                         <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="oMI-fv-IDT" imageView="nc7-9l-JXF" style="IBUITableViewCellStyleDefault" id="iYs-FD-vGO">
-                                        <rect key="frame" x="0.0" y="93" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="168" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iYs-FD-vGO" id="6pa-cc-86I">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -492,7 +592,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Открыть сайт компании " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oMI-fv-IDT">
                                                     <rect key="frame" x="61" y="0.0" width="298" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -509,16 +609,16 @@
                             <tableViewSection footerTitle=" " id="1RS-kJ-fup">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="3S0-3H-DVS" detailTextLabel="aU1-Ce-c11" imageView="qAF-9g-isV" style="IBUITableViewCellStyleSubtitle" id="jSo-eH-ygi">
-                                        <rect key="frame" x="0.0" y="142" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="217" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jSo-eH-ygi" id="V3t-bw-3Zf">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Приобрести платную версию" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3S0-3H-DVS">
-                                                    <rect key="frame" x="61" y="6" width="211.5" height="17.5"/>
+                                                    <rect key="frame" x="61" y="4.5" width="196.5" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -527,9 +627,9 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Раздел в разработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aU1-Ce-c11">
-                                                    <rect key="frame" x="61" y="23.5" width="129" height="15"/>
+                                                    <rect key="frame" x="61" y="23" width="118.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="11"/>
                                                     <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -542,7 +642,7 @@
                             <tableViewSection footerTitle=" " id="mgi-Ci-SsJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="zIM-pP-s3T" imageView="cKp-eq-vId" style="IBUITableViewCellStyleDefault" id="4Aw-fS-6Rp">
-                                        <rect key="frame" x="0.0" y="191" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="266" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Aw-fS-6Rp" id="8LS-cZ-sF5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -551,7 +651,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Сменить пользователя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zIM-pP-s3T">
                                                     <rect key="frame" x="61" y="0.0" width="298" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -574,6 +674,9 @@
                     <navigationItem key="navigationItem" title="Настройки" id="prl-Om-fpS">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="5nr-50-CGn"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="userCell" destination="uPL-6y-gxK" id="h3D-RF-HeJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sH7-2P-xQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -696,6 +799,7 @@
         <image name="change-user" width="30" height="30"/>
         <image name="daily_stat" width="30" height="30"/>
         <image name="logoImage" width="2500" height="1308"/>
+        <image name="nophoto" width="112" height="112"/>
         <image name="options" width="30" height="30"/>
         <image name="site" width="30" height="30"/>
         <image name="total_stat" width="30" height="30"/>
