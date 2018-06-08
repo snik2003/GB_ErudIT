@@ -9,7 +9,14 @@
 import Foundation
 import SwiftyJSON
 
-class Word {
+class Word: Equatable {
+    static func == (lhs: Word, rhs: Word) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        }
+        return false
+    }
+    
     var id: Int = 0
     var addedBy: Int = 0
     var name: String = ""

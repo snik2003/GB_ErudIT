@@ -136,12 +136,26 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
             OperationQueue.main.addOperation {
                 if url == "sites" {
                     self.sites = json.compactMap { Site(json: $0.1) }
+                    
+                    for site in self.sites {
+                        if site.addedBy != appConfig.shared.appUser.addedBy {
+                            self.sites.delete(element: site)
+                        }
+                    }
+                    
                     for site in self.sites {
                         self.sitePicker.append(site.name)
                     }
                     self.siteDrop.dataSource = self.sitePicker
                 } else if url == "persons" {
                     self.words = json.compactMap { Word(json: $0.1) }
+                    
+                    for word in self.words {
+                        if word.addedBy != appConfig.shared.appUser.addedBy {
+                            self.words.delete(element: word)
+                        }
+                    }
+                    
                     for word in self.words {
                         self.wordPicker.append(word.name)
                     }

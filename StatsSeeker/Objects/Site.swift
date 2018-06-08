@@ -9,7 +9,14 @@
 import Foundation
 import SwiftyJSON
 
-class Site {
+class Site: Equatable {
+    static func == (lhs: Site, rhs: Site) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        }
+        return false
+    }
+
     var id: Int = 0
     var addedBy: Int = 0
     var name: String = ""

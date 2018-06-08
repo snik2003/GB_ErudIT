@@ -73,15 +73,29 @@ class TotalStatController: UITableViewController {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.jsonErrorMessage(); return }
-            //print(json)
+            print(json)
             
             if self.statType == "sites" {
                 self.sites = json.compactMap { Site(json: $0.1) }
+                
+                for site in self.sites {
+                    if site.addedBy != appConfig.shared.appUser.addedBy {
+                        self.sites.delete(element: site)
+                    }
+                }
+                
                 for site in self.sites {
                     self.names.append(site.name)
                 }
             } else if self.statType == "persons" {
                 self.words = json.compactMap { Word(json: $0.1) }
+                
+                for word in self.words {
+                    if word.addedBy != appConfig.shared.appUser.addedBy {
+                        self.words.delete(element: word)
+                    }
+                }
+                
                 for word in self.words {
                     self.names.append(word.name)
                 }

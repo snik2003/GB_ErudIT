@@ -108,3 +108,9 @@ extension UIViewController: ViewControllerProtocol {
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
+
+extension Array where Element: Equatable  {
+    mutating func delete(element: Iterator.Element) {
+        self = self.filter{$0 != element }
+    }
+}
