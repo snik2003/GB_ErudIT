@@ -11,6 +11,9 @@ import Charts
 
 class ChartController: UIViewController {
 
+    var navHeight: CGFloat = 64
+    var tabHeight: CGFloat = 49
+    
     var barChartView = BarChartView()
     var pieChartView = PieChartView()
     
@@ -23,6 +26,11 @@ class ChartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if UIScreen.main.nativeBounds.height == 2436 {
+            navHeight = 88
+            tabHeight = 83
+        }
+        
         createBarChartView()
         createPieChartView()
         
@@ -66,7 +74,7 @@ class ChartController: UIViewController {
         }
         setBarChart(dataPoints: names, values: values)
         
-        barChartView.frame = CGRect(x: 10, y: 70, width: self.view.bounds.width-20, height: self.view.bounds.height-70-48-10)
+        barChartView.frame = CGRect(x: 10, y: navHeight+10, width: self.view.bounds.width-20, height: self.view.bounds.height-navHeight-tabHeight-20)
         self.view.addSubview(barChartView)
         
         let tap = UILongPressGestureRecognizer(target: self, action: #selector(saveBarChartView))
@@ -102,7 +110,7 @@ class ChartController: UIViewController {
         }
         setPieChart(dataPoints: names, values: values)
         
-        pieChartView.frame = CGRect(x: 10, y: 70, width: self.view.bounds.width-20, height: self.view.bounds.height-70-48-10)
+        pieChartView.frame = CGRect(x: 10, y: navHeight+10, width: self.view.bounds.width-20, height: self.view.bounds.height-navHeight-tabHeight-20)
         self.view.addSubview(pieChartView)
         
         let tap = UILongPressGestureRecognizer(target: self, action: #selector(savePieChartView))
