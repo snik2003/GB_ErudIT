@@ -20,6 +20,8 @@ protocol ViewControllerProtocol {
     func jsonErrorMessage()
     
     func openStatPresenter(site: Site?, word: Word?, title: String)
+    
+    func openChartController(data: [String: Int], names: [String], description: String, title: String)
 }
 
 extension UIViewController: ViewControllerProtocol {

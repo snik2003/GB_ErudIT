@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Приложение "ЭрудIT" запрашивает доступ к вашей библиотеке фотографий для сохранения графиков и диаграмм.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Приложение "ЭрудIT" запрашивает доступ к вашей библиотеке фотографий для сохранения графиков и диаграмм.</string>
 </dict>
 </plist>
