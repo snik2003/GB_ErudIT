@@ -126,7 +126,7 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
     
     func getObjectList(url: String) {
         
-        let getServerData = GetServerDataOperation(url: url, parameters: nil)
+        let getServerData = GetServerDataOperation(url: url, parameters: nil, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             

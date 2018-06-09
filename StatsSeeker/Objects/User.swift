@@ -15,6 +15,7 @@ class User: Codable {
     var addedBy = 0
     var login = ""
     var email = ""
+    var token = ""
     
     init(json: JSON) {
         self.id = json["id"].intValue

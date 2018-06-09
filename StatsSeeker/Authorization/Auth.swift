@@ -16,7 +16,7 @@ class Auth {
     func autorization(_ login: String, _ pass: String, completion: @escaping (Int) -> ()) {
         
         var userID = 0
-        let getServerData = GetServerDataOperation(url: "users", parameters: nil)
+        let getServerData = GetServerDataOperation(url: "users", parameters: nil, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             

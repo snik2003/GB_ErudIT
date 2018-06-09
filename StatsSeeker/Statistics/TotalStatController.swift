@@ -68,7 +68,7 @@ class TotalStatController: UITableViewController {
         tableView.separatorStyle = .none
         ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
     
-        let getServerData = GetServerDataOperation(url: self.statType, parameters: nil)
+        let getServerData = GetServerDataOperation(url: self.statType, parameters: nil, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             

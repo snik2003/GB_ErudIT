@@ -70,7 +70,7 @@ class StatPresenterController: UITableViewController {
                 "_till": dateFormatter.string(from: date2)
             ]
         }
-        let getServerData = GetServerDataOperation(url: url, parameters: parameters)
+        let getServerData = GetServerDataOperation(url: url, parameters: parameters, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             
