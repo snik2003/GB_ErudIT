@@ -19,8 +19,14 @@ class ViewControllerUtils {
         ViewControllerUtils.container.center = uiView.center
         ViewControllerUtils.container.backgroundColor = UIColor.clear
         
-        ViewControllerUtils.loadingView.frame = CGRect(x: UIScreen.main.bounds.width/2-40, y: UIScreen.main.bounds.height/2-40-64, width: 80, height: 80)
-        ViewControllerUtils.loadingView.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.6)
+        
+        let loadingViewX = UIScreen.main.bounds.width/2-40
+        var loadingViewY = UIScreen.main.bounds.height/2-40-64
+        if uiView.getParentViewController() is LoginViewController {
+            loadingViewY = UIScreen.main.bounds.height/2-40
+        }
+        ViewControllerUtils.loadingView.frame = CGRect(x: loadingViewX, y: loadingViewY, width: 80, height: 80)
+        ViewControllerUtils.loadingView.backgroundColor = appConfig.shared.tintColor.withAlphaComponent(0.8)
         ViewControllerUtils.loadingView.clipsToBounds = true
         ViewControllerUtils.loadingView.layer.cornerRadius = 10
         
@@ -55,5 +61,18 @@ extension UIView {
         print(frame)
         print(frame.intersection(superview.bounds))
         return frame.intersection(superview.bounds)
+    }
+}
+
+extension UIResponder {
+    func getParentViewController() -> UIViewController? {
+        if self.next is UIViewController {
+            return self.next as? UIViewController
+        } else {
+            if self.next != nil {
+                return (self.next!).getParentViewController()
+            }
+            else {return nil}
+        }
     }
 }

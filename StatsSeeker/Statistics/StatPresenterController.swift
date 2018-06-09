@@ -187,7 +187,7 @@ class StatPresenterController: UITableViewController {
     func createSectionHeader() -> UIView {
         if let date1 = self.beginDate, let date2 = self.endDate, let site = self.site, let word = self.word {
             let tview = UIView()
-            tview.backgroundColor = appConfig.shared.tintColor
+            tview.backgroundColor = appConfig.shared.tintColor.withAlphaComponent(0.95)
             
             let paramLabel = UILabel()
             paramLabel.text = "cайт \(site.name), cлово \(word.name)"
@@ -214,7 +214,7 @@ class StatPresenterController: UITableViewController {
         } else if let site = self.site {
             
             let tview = UIView()
-            tview.backgroundColor = appConfig.shared.tintColor
+            tview.backgroundColor = appConfig.shared.tintColor.withAlphaComponent(0.95)
             
             let paramLabel = UILabel()
             paramLabel.text = "cайт \(site.name)"
@@ -234,7 +234,7 @@ class StatPresenterController: UITableViewController {
             
         } else if let word = self.word {
             let tview = UIView()
-            tview.backgroundColor = appConfig.shared.tintColor
+            tview.backgroundColor = appConfig.shared.tintColor.withAlphaComponent(0.95)
             
             let paramLabel = UILabel()
             paramLabel.text = "cлово \(word.name)"
