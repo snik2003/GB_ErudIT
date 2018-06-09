@@ -1,5 +1,5 @@
 //
-//  OptionsController.swift
+//  ProfileController.swift
 //  StatsSeeker
 //
 //  Created by Сергей Никитин on 05.06.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsController: UITableViewController {
+class ProfileController: UITableViewController {
 
     @IBOutlet weak var userCell: UITableViewCell!
     

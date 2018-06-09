@@ -413,10 +413,10 @@
             </objects>
             <point key="canvasLocation" x="798" y="1549"/>
         </scene>
-        <!--Настройки-->
+        <!--Профиль-->
         <scene sceneID="XcV-uI-9ee">
             <objects>
-                <tableViewController storyboardIdentifier="OptionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ms7-I5-jdb" customClass="OptionsController" customModule="StatsSeeker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ms7-I5-jdb" customClass="ProfileController" customModule="StatsSeeker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="5" sectionFooterHeight="5" id="MYg-eY-EJh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -671,7 +671,7 @@
                             <outlet property="delegate" destination="Ms7-I5-jdb" id="2Xt-Ec-VQe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Настройки" id="prl-Om-fpS">
+                    <navigationItem key="navigationItem" title="Профиль" id="prl-Om-fpS">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="5nr-50-CGn"/>
                     </navigationItem>
                     <connections>
@@ -733,11 +733,11 @@
             </objects>
             <point key="canvasLocation" x="798" y="796"/>
         </scene>
-        <!--Настройки-->
+        <!--Профиль-->
         <scene sceneID="QYo-YH-YBu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UXd-8c-8ij" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Настройки" image="options" landscapeImage="options" largeContentSizeImage="options" id="WOc-Bb-4Fu"/>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="change-user" landscapeImage="change-user" largeContentSizeImage="change-user" id="WOc-Bb-4Fu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bzy-VN-Hda">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
