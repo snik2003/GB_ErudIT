@@ -63,7 +63,7 @@ class ProfileController: UITableViewController {
         
         // options of app
         if indexPath.section == 1 && indexPath.row == 1 {
-            self.showErrorMessage(title: "Приложение «\(appConfig.shared.appName)»", msg: "Данный раздел находится в стадии разработки. Приносим извинения за неудобства.")
+            performSegue(withIdentifier: "options", sender: self)
         }
         
         // about company

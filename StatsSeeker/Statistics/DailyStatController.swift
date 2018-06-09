@@ -130,7 +130,7 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             
-            guard let json = try? JSON(data: data) else { self.jsonErrorMessage(); return }
+            guard let json = try? JSON(data: data) else { return }
             //print(json)
             
             OperationQueue.main.addOperation {
