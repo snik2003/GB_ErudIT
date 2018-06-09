@@ -54,16 +54,6 @@ class ViewControllerUtils {
     }
 }
 
-extension UIView {
-    var visibleRect: CGRect {
-        guard let superview = superview else { return frame }
-        print(superview.bounds)
-        print(frame)
-        print(frame.intersection(superview.bounds))
-        return frame.intersection(superview.bounds)
-    }
-}
-
 extension UIResponder {
     func getParentViewController() -> UIViewController? {
         if self.next is UIViewController {
