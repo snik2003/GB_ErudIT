@@ -52,6 +52,8 @@ class Auth {
             guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
             //print(json)
             
+            let success = json["success"].intValue
+            print("sign out = \(success)")
             OperationQueue.main.addOperation {
                 if let controller = self.delegate.storyboard?.instantiateViewController(withIdentifier: "StartViewController") as? ViewController {
             
