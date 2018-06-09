@@ -45,7 +45,9 @@ class Auth {
             appConfig.shared.appUser = User(json: json)
             appConfig.shared.appUser.token = token
             self.saveDefaults()
-            self.delegate.performSegue(withIdentifier: "goTabBar", sender: self)
+            OperationQueue.main.addOperation {
+                self.delegate.performSegue(withIdentifier: "goTabBar", sender: self)
+            }
         }
         OperationQueue().addOperation(getServerData)
     }
@@ -71,6 +73,7 @@ class Auth {
         UserDefaults.standard.removeObject(forKey: appConfig.shared.appUserDefaultsKeyName)
     }
     
+    // временная фенкция авторизации пока не заработает АПИ
     func getRequest(_ login: String, _ pass: String) -> Int {
         
         var userID = 0

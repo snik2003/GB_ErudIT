@@ -14,21 +14,19 @@ class ViewControllerUtils {
     private static var loadingView: UIView = UIView()
     private static var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    
     func showActivityIndicator(uiView: UIView) {
         ViewControllerUtils.container.frame = uiView.frame
         ViewControllerUtils.container.center = uiView.center
         ViewControllerUtils.container.backgroundColor = UIColor.clear
         
-        ViewControllerUtils.loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
-        ViewControllerUtils.loadingView.center = uiView.center
-        ViewControllerUtils.loadingView.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.7)
+        ViewControllerUtils.loadingView.frame = CGRect(x: UIScreen.main.bounds.width/2-40, y: UIScreen.main.bounds.height/2-40-64, width: 80, height: 80)
+        ViewControllerUtils.loadingView.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.6)
         ViewControllerUtils.loadingView.clipsToBounds = true
         ViewControllerUtils.loadingView.layer.cornerRadius = 10
         
         ViewControllerUtils.activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40);
         ViewControllerUtils.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        //ViewControllerUtils.activityIndicator.color = UIColor.black
+        ViewControllerUtils.activityIndicator.color = appConfig.shared.textColor
         ViewControllerUtils.activityIndicator.center = CGPoint(x: ViewControllerUtils.loadingView.frame.size.width / 2, y: ViewControllerUtils.loadingView.frame.size.height / 2);
         
         ViewControllerUtils.loadingView.addSubview(ViewControllerUtils.activityIndicator)
