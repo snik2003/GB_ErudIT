@@ -31,6 +31,8 @@ class OptionsController: UITableViewController {
             avatar.layer.cornerRadius = 25
             
             userCell.isHidden = false
+            
+            print("token = \(appConfig.shared.appUser.token)")
         }
     }
 

@@ -108,14 +108,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let login = loginTextField.text, let pass = passTextField.text {
             let auth = Auth()
             auth.delegate = self
-            auth.autorization(login,pass) { (userID) in
+            auth.autorization(login,pass) { (result) in
                 OperationQueue.main.addOperation {
-                    if userID > 0 {
-                        self.performSegue(withIdentifier: "goTabBar", sender: self)
+                    if result != "" {
+                        print(result)
+                        let comp = result.components(separatedBy: "_")
+                        if comp.count > 1, let userID = Int(comp[0]) {
+                            let token = comp[1]
+                            auth.getCurrentUserData(userID, token)
+                        }
                     } else {
                         self.passTextField?.text = ""
                         self.checkActiveAuthButton()
-                        self.failedAuthMessage(login)
+                        self.failedAuthMessage()
                     }
                 }
             }

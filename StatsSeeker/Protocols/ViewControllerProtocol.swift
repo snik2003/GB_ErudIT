@@ -19,7 +19,7 @@ protocol ViewControllerProtocol {
     
     func jsonErrorMessage()
     
-    func failedAuthMessage(_ login: String)
+    func failedAuthMessage()
     
     func openStatPresenter(site: Site?, word: Word?, title: String)
     
@@ -89,9 +89,9 @@ extension UIViewController: ViewControllerProtocol {
         }
     }
     
-    func failedAuthMessage(_ login: String) {
+    func failedAuthMessage() {
         OperationQueue.main.addOperation {
-            self.showErrorMessage(title: "Ошибка авторизации \(login)", msg: "Неверное имя пользователя или пароль. Повторите попытку.\n")
+            self.showErrorMessage(title: "Ошибка авторизации!", msg: "Неверное имя пользователя или пароль. Повторите попытку.\n")
         }
     }
     
