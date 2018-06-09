@@ -8,27 +8,57 @@
 
 import Foundation
 import SwiftyJSON
+import SwiftHash
 
 class Auth {
     
-    var delegate: LoginViewController!
+    var delegate: UIViewController!
     
     func autorization(_ login: String, _ password: String, completion: @escaping (String) -> ()) {
         
         var result = ""
-        let getServerData = GetServerDataOperation(url: "auth", parameters: nil, method: .post)
+        
+        let parameters = [
+            "user": login,
+            "password": password
+            ]
+        
+        let getServerData = GetServerDataOperation2(url: "auth", parameters: parameters, method: .post)
         getServerData.completionBlock = {
-            //guard let data = getServerData.data else { return }
+            guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
             
-            //guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
+            guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
             //print(json)
             
-            let userID = self.getRequest(login, password) //json["success"].intValue
-            if userID > 0 {
-                let token = "1234567890" //json["token_auth"].intValue
+            let success = json["success"].intValue
+            if success == 1 {
+                let userID = json["user_id"].intValue
+                let token = json["token_auth"].stringValue
                 result = "\(userID)_\(token)"
             }
             completion(result)
+        }
+        OperationQueue().addOperation(getServerData)
+    }
+    
+    func signOut(token: String) {
+        
+        let parameters = [ "token_auth": token ]
+        
+        let getServerData = GetServerDataOperation2(url: "auth", parameters: parameters, method: .delete)
+        getServerData.completionBlock = {
+            guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
+            
+            guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
+            //print(json)
+            
+            OperationQueue.main.addOperation {
+                if let controller = self.delegate.storyboard?.instantiateViewController(withIdentifier: "StartViewController") as? ViewController {
+            
+                    self.removeDefaults()
+                    UIApplication.shared.keyWindow?.rootViewController = controller
+                }
+            }
         }
         OperationQueue().addOperation(getServerData)
     }
@@ -71,22 +101,5 @@ class Auth {
     
     func removeDefaults() {
         UserDefaults.standard.removeObject(forKey: appConfig.shared.appUserDefaultsKeyName)
-    }
-    
-    // временная фенкция авторизации пока не заработает АПИ
-    func getRequest(_ login: String, _ pass: String) -> Int {
-        
-        var userID = 0
-        if login.lowercased() == "admin1" && pass == "1111" {
-            userID = 1
-        } else if login.lowercased() == "admin2" && pass == "2222" {
-            userID = 2
-        } else if login.lowercased() == "user1" && pass == "3333" {
-            userID = 3
-        } else if login.lowercased() == "user2" && pass == "4444" {
-            userID = 4
-        }
-        
-        return userID
     }
 }

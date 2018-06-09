@@ -95,11 +95,10 @@ class ProfileController: UITableViewController {
             alertController.addAction(cancelAction)
             
             let action = UIAlertAction(title: "Выйти из пользователя «\(appConfig.shared.appUser.login)»", style: .destructive) { action in
-                if let controller = self.storyboard?.instantiateViewController(withIdentifier: "StartViewController") as? ViewController {
-                
-                    Auth().removeDefaults()
-                    UIApplication.shared.keyWindow?.rootViewController = controller
-                }
+
+                let auth = Auth()
+                auth.delegate = self
+                auth.signOut(token: appConfig.shared.appUser.token)
             }
             alertController.addAction(action)
             present(alertController, animated: true)

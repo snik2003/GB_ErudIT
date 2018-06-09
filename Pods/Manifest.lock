@@ -13,6 +13,7 @@ PODS:
   - RealmSwift (3.5.0):
     - Realm (= 3.5.0)
   - SCLAlertView (0.8)
+  - SwiftHash (2.0.1)
   - SwiftMessages (4.1.4):
     - SwiftMessages/App (= 4.1.4)
   - SwiftMessages/App (4.1.4)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - Popover
   - RealmSwift (~> 3.0)
   - SCLAlertView (~> 0.8)
+  - SwiftHash
   - SwiftMessages
   - SwiftyJSON (~> 4.0)
 
@@ -41,6 +43,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SCLAlertView
+    - SwiftHash
     - SwiftMessages
     - SwiftyJSON
 
@@ -54,9 +57,10 @@ SPEC CHECKSUMS:
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SwiftHash: c805de5a434eacfa0dac7210745a50c55d7fe33d
   SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: cf7aae7ffd2e64a51799390d40ce1e98c532c4c7
+PODFILE CHECKSUM: 715536c341fbd12f536acafca62a4044077c8ea4
 
 COCOAPODS: 1.5.0
