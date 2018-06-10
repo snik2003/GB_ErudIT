@@ -13,7 +13,7 @@ final class appConfig {
     static let shared = appConfig()
     
     let appName = "ЭрудIT"
-    let appSite = "https://dtgb.solutions"
+    let appSite = "https://dtgb.solutions/about-company.html"
     let appUserDefaultsKeyName = "ERUDIT_USER"
     
     let tintColor = UIColor.init(red: 52/255, green: 125/255, blue: 178/255, alpha: 1)

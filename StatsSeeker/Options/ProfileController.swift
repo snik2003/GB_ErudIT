@@ -31,8 +31,6 @@ class ProfileController: UITableViewController {
             avatar.layer.cornerRadius = 25
             
             userCell.isHidden = false
-            
-            print("token = \(appConfig.shared.appUser.token)")
         }
     }
 
@@ -61,13 +59,8 @@ class ProfileController: UITableViewController {
             self.showErrorMessage(title: "Приложение «\(appConfig.shared.appName)»", msg: "Данный раздел находится в стадии разработки. Приносим извинения за неудобства.")
         }
         
-        // options of app
-        if indexPath.section == 1 && indexPath.row == 1 {
-            performSegue(withIdentifier: "options", sender: self)
-        }
-        
         // about company
-        if indexPath.section == 1 && indexPath.row == 2 {
+        if indexPath.section == 1 && indexPath.row == 1 {
             let alertController = UIAlertController(title: appConfig.shared.appSite, message: nil, preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
@@ -80,6 +73,11 @@ class ProfileController: UITableViewController {
             }
             alertController.addAction(action)
             present(alertController, animated: true)
+        }
+        
+        // options of app
+        if indexPath.section == 1 && indexPath.row == 2 {
+            performSegue(withIdentifier: "options", sender: self)
         }
         
         // buy the paid version of app
