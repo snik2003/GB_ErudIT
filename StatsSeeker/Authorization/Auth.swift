@@ -65,6 +65,20 @@ class Auth {
         OperationQueue().addOperation(getServerData)
     }
     
+    func extendToken(token: String) {
+        
+        let parameters = [ "token_auth": token ]
+        
+        let getServerData = GetServerDataOperation2(url: "auth", parameters: parameters, method: .patch)
+        getServerData.completionBlock = {
+            guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
+            
+            guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
+            print(json)
+        }
+        OperationQueue().addOperation(getServerData)
+    }
+    
     func getCurrentUserData(_ userID: Int, _ token: String) {
         
         let getServerData = GetServerDataOperation(url: "users/\(userID)", parameters: nil, method: .get)
@@ -95,6 +109,7 @@ class Auth {
         if let user = UserDefaults.standard.object(forKey: appConfig.shared.appUserDefaultsKeyName) as? Data {
             if let loadUser = try? JSONDecoder().decode(User.self, from: user) {
                 appConfig.shared.appUser = loadUser
+                extendToken(token: loadUser.token)
                 return true
             }
         }
