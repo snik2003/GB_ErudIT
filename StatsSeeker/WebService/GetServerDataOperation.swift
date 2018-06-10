@@ -30,34 +30,13 @@ class GetServerDataOperation: AsyncOperation {
     }
     
     init(url: String, parameters: Parameters?, method: HTTPMethod) {
-        self.url = appConfig.shared.apiURL1 + "/" + appConfig.shared.apiVersion + "/" + url
+        self.url = appConfig.shared.apiURL + "/" + appConfig.shared.apiVersion + "/" + url
         self.parameters = parameters
-        request = Alamofire.request(self.url, method: method, parameters: self.parameters)
-    }
-}
-
-class GetServerDataOperation2: AsyncOperation {
-    
-    override func cancel() {
-        request.cancel()
-        super.cancel()
-    }
-    
-    private var request: DataRequest
-    private var url: String
-    private var parameters: Parameters?
-    var data: Data?
-    
-    override func main() {
-        request.responseData(queue: DispatchQueue.global()) { [weak self] response in
-            self?.data = response.data
-            self?.state = .finished
+        
+        if url == "auth" {
+           request = Alamofire.request(self.url, method: method, parameters: self.parameters, encoding: JSONEncoding.default, headers: nil)
+        } else {
+            request = Alamofire.request(self.url, method: method, parameters: self.parameters)
         }
-    }
-    
-    init(url: String, parameters: Parameters?, method: HTTPMethod) {
-        self.url = appConfig.shared.apiURL2 + "/" + appConfig.shared.apiVersion + "/" + url
-        self.parameters = parameters
-        request = Alamofire.request(self.url, method: method, parameters: self.parameters, encoding: JSONEncoding.default, headers: nil)
     }
 }

@@ -27,13 +27,19 @@ class StatPresenterController: UITableViewController {
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd0000"
+        dateFormatter.dateFormat = "yyyyMMdd000000"
         return dateFormatter
     }()
     
     let dateFormatter2: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter
+    }()
+    
+    let dateFormatter3: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, dd MMMM yyyy HH:mm:ss zzz"
         return dateFormatter
     }()
     
@@ -63,13 +69,15 @@ class StatPresenterController: UITableViewController {
         
         var url = "persons/rank"
         var parameters: Parameters? = nil
-        if let date1 = beginDate, let date2 = endDate {
-            url = "persons/rank/date"
+        
+        if let date1 = beginDate, let date2 = endDate, let word = self.word {
+            url = "persons/rank/\(word.id)/date"
             parameters = [
                 "_from": dateFormatter.string(from: date1),
                 "_till": dateFormatter.string(from: date2)
             ]
         }
+        
         let getServerData = GetServerDataOperation(url: url, parameters: parameters, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
@@ -81,32 +89,39 @@ class StatPresenterController: UITableViewController {
             
             for rank in self.ranks {
                 if let site = self.site, self.word == nil {
-                    if rank.siteID == site.id {
-                        if let num = self.result[rank.wordName] {
-                            self.result[rank.wordName] = num + rank.rank
-                        } else {
-                            self.result[rank.wordName] = rank.rank
-                            self.names.append(rank.wordName)
+                    if let wordName = appConfig.shared.words.filter({ $0.id == rank.wordID }).first?.name {
+                        if rank.siteID == site.id {
+                            if let num = self.result[wordName] {
+                                self.result[wordName] = num + rank.rank
+                            } else {
+                                self.result[wordName] = rank.rank
+                                self.names.append(wordName)
+                            }
                         }
                     }
                 } else if self.site == nil, let word = self.word {
-                    if rank.wordID == word.id {
-                        if let num = self.result[rank.siteName] {
-                            self.result[rank.siteName] = num + rank.rank
-                        } else {
-                            self.result[rank.siteName] = rank.rank
-                            self.names.append(rank.siteName)
+                    if let siteName = appConfig.shared.sites.filter({ $0.id == rank.siteID }).first?.name {
+                        if rank.wordID == word.id {
+                            if let num = self.result[siteName] {
+                                self.result[siteName] = num + rank.rank
+                            } else {
+                                self.result[siteName] = rank.rank
+                                self.names.append(siteName)
+                            }
                         }
                     }
                 } else if let site = self.site, let word = self.word {
-                    if rank.siteID == site.id, rank.wordID == word.id {
+                    if rank.pageID == site.id, rank.personID == word.id, rank.siteAddBy == site.addedBy, rank.wordAddBy == word.addedBy {
                         
-                        let strDate = rank.foundDateTime.components(separatedBy: " ")[0]
-                        if let num = self.result[strDate] {
-                            self.result[strDate] = num + rank.rank
-                        } else {
-                            self.result[strDate] = rank.rank
-                            self.names.append(strDate)
+                        if let date = self.dateFormatter3.date(from: rank.foundDate) {
+                            
+                            let strDate = self.dateFormatter2.string(from: date)
+                            if let num = self.result[strDate] {
+                                self.result[strDate] = num + rank.rank
+                            } else {
+                                self.result[strDate] = rank.rank
+                                self.names.append(strDate)
+                            }
                         }
                     }
                 }

@@ -23,7 +23,7 @@ class Auth {
             "password": password
             ]
         
-        let getServerData = GetServerDataOperation2(url: "auth", parameters: parameters, method: .post)
+        let getServerData = GetServerDataOperation(url: "auth", parameters: parameters, method: .post)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
             
@@ -45,7 +45,7 @@ class Auth {
         
         let parameters = [ "token_auth": token ]
         
-        let getServerData = GetServerDataOperation2(url: "auth", parameters: parameters, method: .delete)
+        let getServerData = GetServerDataOperation(url: "auth", parameters: parameters, method: .delete)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
             
@@ -69,7 +69,7 @@ class Auth {
         
         let parameters = [ "token_auth": token ]
         
-        let getServerData = GetServerDataOperation2(url: "auth", parameters: parameters, method: .patch)
+        let getServerData = GetServerDataOperation(url: "auth", parameters: parameters, method: .patch)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
             
@@ -86,7 +86,7 @@ class Auth {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
-            //print(json)
+            print(json)
             
             appConfig.shared.appUser = User(json: json)
             appConfig.shared.appUser.token = token

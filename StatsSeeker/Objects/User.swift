@@ -19,9 +19,9 @@ class User: Codable {
     
     init(json: JSON) {
         self.id = json["id"].intValue
-        self.isAdmin = json["isAdmin"].intValue
+        self.isAdmin = json["isadmin"].intValue
         if self.isAdmin == 0 {
-            self.addedBy = json["addedBy"].intValue
+            self.addedBy = json["addby"].intValue
         } else {
             self.addedBy = self.id
         }

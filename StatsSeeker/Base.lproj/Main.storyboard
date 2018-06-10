@@ -391,7 +391,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://smallapi.dtgb.solutions" borderStyle="roundedRect" placeholder="URL-адрес веб-сервиса:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sUp-fR-ce7">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL-адрес веб-сервиса:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sUp-fR-ce7">
                                 <rect key="frame" x="20" y="236" width="335" height="30"/>
                                 <color key="tintColor" red="0.019607843140000001" green="0.4039215686" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -408,7 +408,7 @@
                                     <constraint firstAttribute="height" constant="5" id="J6m-mV-GI4"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4j6-dU-HbH">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4j6-dU-HbH">
                                 <rect key="frame" x="305" y="296" width="52" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5fS-0y-d15"/>

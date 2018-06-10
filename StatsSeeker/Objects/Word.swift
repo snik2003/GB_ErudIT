@@ -23,7 +23,7 @@ class Word: Equatable {
     
     init(json: JSON) {
         self.id = json["id"].intValue
-        self.addedBy = json["addedBy"].intValue
+        self.addedBy = json["addby"].intValue
         self.name = json["name"].stringValue
     }
 }

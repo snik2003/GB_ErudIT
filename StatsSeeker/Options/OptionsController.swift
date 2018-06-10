@@ -24,6 +24,7 @@ class OptionsController: UIViewController {
         webs.append(soapSwitch)
         
         urlTextField.startConfigure()
+        urlTextField.text = appConfig.shared.apiURL
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(hideKeyboardGesture)

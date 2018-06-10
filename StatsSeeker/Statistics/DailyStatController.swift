@@ -17,13 +17,11 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
     var siteDrop = DropDown()
     var siteIndex = 0
     var sitePicker: [String] = []
-    var sites: [Site] = []
     
     @IBOutlet weak var wordTextField: UITextField!
     var wordDrop = DropDown()
     var wordIndex = 0
     var wordPicker: [String] = []
-    var words: [Word] = []
     
     @IBOutlet weak var beginDateTextField: UITextField!
     @IBOutlet weak var endDateTextField: UITextField!
@@ -126,44 +124,17 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
     
     func getObjectList(url: String) {
         
-        let getServerData = GetServerDataOperation(url: url, parameters: nil, method: .get)
-        getServerData.completionBlock = {
-            guard let data = getServerData.data else { return }
-            
-            guard let json = try? JSON(data: data) else { return }
-            //print(json)
-            
-            OperationQueue.main.addOperation {
-                if url == "sites" {
-                    self.sites = json.compactMap { Site(json: $0.1) }
-                    
-                    for site in self.sites {
-                        if site.addedBy != appConfig.shared.appUser.addedBy {
-                            self.sites.delete(element: site)
-                        }
-                    }
-                    
-                    for site in self.sites {
-                        self.sitePicker.append(site.name)
-                    }
-                    self.siteDrop.dataSource = self.sitePicker
-                } else if url == "persons" {
-                    self.words = json.compactMap { Word(json: $0.1) }
-                    
-                    for word in self.words {
-                        if word.addedBy != appConfig.shared.appUser.addedBy {
-                            self.words.delete(element: word)
-                        }
-                    }
-                    
-                    for word in self.words {
-                        self.wordPicker.append(word.name)
-                    }
-                    self.wordDrop.dataSource = self.wordPicker
-                }
+        if url == "sites" {
+            for site in appConfig.shared.sites {
+                self.sitePicker.append(site.name)
             }
+            self.siteDrop.dataSource = self.sitePicker
+        } else if url == "persons" {
+            for word in appConfig.shared.words {
+                self.wordPicker.append(word.name)
+            }
+            self.wordDrop.dataSource = self.wordPicker
         }
-        queue.addOperation(getServerData)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -241,8 +212,8 @@ class DailyStatController: UIViewController, UITextFieldDelegate {
         if let date1 = dateFormatter.date(from: beginDateTextField.text!), let date2 = dateFormatter.date(from: endDateTextField.text!) {
             let controller = storyboard?.instantiateViewController(withIdentifier: "StatPresenterController") as! StatPresenterController
             
-            controller.site = sites[siteIndex]
-            controller.word = words[wordIndex]
+            controller.site = appConfig.shared.sites[siteIndex]
+            controller.word = appConfig.shared.words[wordIndex]
             
             controller.beginDate = date1
             controller.endDate = date2
