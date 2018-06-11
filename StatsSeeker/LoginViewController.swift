@@ -25,6 +25,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginTextField.delegate = self
         passTextField.delegate = self
         
+        loginTextField.text = appConfig.shared.appUser.login
+        
         loginTextField.addTarget(self, action: #selector(checkActiveAuthButton), for: .editingChanged)
         passTextField.addTarget(self, action: #selector(checkActiveAuthButton), for: .editingChanged)
         

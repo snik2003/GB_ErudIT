@@ -22,7 +22,7 @@ class ViewControllerUtils {
         
         let loadingViewX = UIScreen.main.bounds.width/2-40
         var loadingViewY = UIScreen.main.bounds.height/2-40-64
-        if uiView.getParentViewController() is LoginViewController {
+        if uiView.getParentViewController() is LoginViewController || uiView.getParentViewController() is ViewController {
             loadingViewY = UIScreen.main.bounds.height/2-40
         }
         ViewControllerUtils.loadingView.frame = CGRect(x: loadingViewX, y: loadingViewY, width: 80, height: 80)

@@ -65,7 +65,7 @@ class Auth {
         OperationQueue().addOperation(getServerData)
     }
     
-    func extendToken(token: String) {
+    func extendTokenAuth(token: String) {
         
         let parameters = [ "token_auth": token ]
         
@@ -74,7 +74,16 @@ class Auth {
             guard let data = getServerData.data else { self.delegate.jsonErrorMessage(); return }
             
             guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
-            print(json)
+            //print(json)
+            
+            OperationQueue.main.addOperation {
+                let success = json["success"].intValue
+                if success == 1 {
+                    self.delegate.performSegue(withIdentifier: "goTabBar", sender: self)
+                } else {
+                    self.delegate.performSegue(withIdentifier: "goLoginForm", sender: self)
+                }
+            }
         }
         OperationQueue().addOperation(getServerData)
     }
@@ -86,7 +95,7 @@ class Auth {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.delegate.jsonErrorMessage(); return }
-            print(json)
+            //print(json)
             
             appConfig.shared.appUser = User(json: json)
             appConfig.shared.appUser.token = token
@@ -104,16 +113,14 @@ class Auth {
         }
     }
     
-    func getDefaults() -> Bool {
+    func getDefaults() {
         
-        if let user = UserDefaults.standard.object(forKey: appConfig.shared.appUserDefaultsKeyName) as? Data {
-            if let loadUser = try? JSONDecoder().decode(User.self, from: user) {
-                appConfig.shared.appUser = loadUser
-                extendToken(token: loadUser.token)
-                return true
-            }
+        if let user = UserDefaults.standard.object(forKey: appConfig.shared.appUserDefaultsKeyName) as? Data, let loadUser = try? JSONDecoder().decode(User.self, from: user) {
+            appConfig.shared.appUser = loadUser
+            extendTokenAuth(token: loadUser.token)
+        } else {
+            self.delegate.performSegue(withIdentifier: "goLoginForm", sender: self)
         }
-        return false
     }
     
     func removeDefaults() {

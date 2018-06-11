@@ -21,11 +21,10 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if Auth().getDefaults() {
-            performSegue(withIdentifier: "goTabBar", sender: self)
-        } else {
-            performSegue(withIdentifier: "goLoginForm", sender: self)
-        }
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        let auth = Auth()
+        auth.delegate = self
+        auth.getDefaults()
     }
 }
 

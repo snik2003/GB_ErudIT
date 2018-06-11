@@ -18,8 +18,37 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ЭрудIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzW-xt-kpN">
+                                <rect key="frame" x="0.0" y="112" width="375" height="49"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="40"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startImage" translatesAutoresizingMaskIntoConstraints="NO" id="ejj-C6-qAM">
+                                <rect key="frame" x="0.0" y="166" width="375" height="375"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Инструмент определения популярности" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000596046448" translatesAutoresizingMaskIntoConstraints="NO" id="f1H-Js-seZ">
+                                <rect key="frame" x="10" y="561" width="355" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7843137255" green="0.8980392157" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.20392156862745098" green="0.49019607843137253" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f1H-Js-seZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="MWF-uW-cme"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f1H-Js-seZ" secondAttribute="trailing" constant="10" id="V4U-nY-qyz"/>
+                            <constraint firstItem="f1H-Js-seZ" firstAttribute="top" secondItem="ejj-C6-qAM" secondAttribute="bottom" constant="20" id="W2d-gd-i7E"/>
+                            <constraint firstItem="ejj-C6-qAM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZbS-Ft-6y9"/>
+                            <constraint firstItem="ejj-C6-qAM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cnD-K1-B5J"/>
+                            <constraint firstItem="ejj-C6-qAM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="width" id="e0L-ee-Xfn"/>
+                            <constraint firstItem="ejj-C6-qAM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="10" id="hm4-gM-MnX"/>
+                            <constraint firstItem="wzW-xt-kpN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="nUo-T9-Wbw"/>
+                            <constraint firstItem="ejj-C6-qAM" firstAttribute="top" secondItem="wzW-xt-kpN" secondAttribute="bottom" constant="5" id="ryB-6d-VvG"/>
+                            <constraint firstItem="wzW-xt-kpN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uHb-gZ-Ui1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -976,9 +1005,10 @@
         <image name="nophoto" width="112" height="112"/>
         <image name="options" width="30" height="30"/>
         <image name="site" width="30" height="30"/>
+        <image name="startImage" width="1272" height="1272"/>
         <image name="total_stat" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FX8-vp-CDQ"/>
+        <segue reference="OSc-bm-iPw"/>
     </inferredMetricsTieBreakers>
 </document>
