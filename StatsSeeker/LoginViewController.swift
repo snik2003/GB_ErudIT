@@ -117,8 +117,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         let comp = result.components(separatedBy: "_")
                         if comp.count > 1, let userID = Int(comp[0]) {
                             let token = comp[1]
-                            ViewControllerUtils().hideActivityIndicator()
                             auth.getCurrentUserData(userID, token)
+                            ViewControllerUtils().hideActivityIndicator()
                         }
                     } else {
                         self.passTextField?.text = ""
