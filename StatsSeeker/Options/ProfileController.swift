@@ -92,7 +92,7 @@ class ProfileController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
             alertController.addAction(cancelAction)
             
-            let action = UIAlertAction(title: "Выйти из пользователя «\(appConfig.shared.appUser.login)»", style: .destructive) { action in
+            let action = UIAlertAction(title: "Завершить сессию «\(appConfig.shared.appUser.login)»", style: .destructive) { action in
 
                 let auth = Auth()
                 auth.delegate = self

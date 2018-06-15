@@ -90,17 +90,17 @@ class StatPresenterController: UITableViewController {
             for rank in self.ranks {
                 if let site = self.site, self.word == nil {
                     if let wordName = appConfig.shared.words.filter({ $0.id == rank.wordID }).first?.name {
-                        if rank.siteID == site.id {
+                        //if rank.siteID == site.id {
                             if let num = self.result[wordName] {
                                 self.result[wordName] = num + rank.rank
                             } else {
                                 self.result[wordName] = rank.rank
                                 self.names.append(wordName)
                             }
-                        }
+                        //}
                     }
                 } else if self.site == nil, let word = self.word {
-                    if let siteName = appConfig.shared.sites.filter({ $0.id == rank.siteID }).first?.name {
+                    if let siteName = appConfig.shared.sites.filter({ $0.id == 1 /*rank.siteID*/ }).first?.name {
                         if rank.wordID == word.id {
                             if let num = self.result[siteName] {
                                 self.result[siteName] = num + rank.rank
