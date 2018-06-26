@@ -127,8 +127,10 @@ class TotalStatController: UITableViewController {
 
         if self.statType == "sites" {
             cell.textLabel?.text = "\(indexPath.row+1). \(appConfig.shared.sites[indexPath.row].name)"
+            cell.detailTextLabel?.text = appConfig.shared.sites[indexPath.row].siteDescription
         } else if self.statType == "persons" {
             cell.textLabel?.text = "\(indexPath.row+1). \(appConfig.shared.words[indexPath.row].name)"
+            cell.detailTextLabel?.text = ""
         }
         
         return cell

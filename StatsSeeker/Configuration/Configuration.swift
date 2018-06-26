@@ -21,11 +21,12 @@ final class appConfig {
     let textColor = UIColor.init(red: 0/255, green: 250/255, blue: 146/255, alpha: 1)
     
     let apiURL = "https://smallapi.dtgb.solutions" //https://kruserapi.dtgb.solutions
-    
     let apiVersion = "v1"
     
     var appUser = User(json: JSON.null)
     
     var sites: [Site] = []
     var words: [Word] = []
+    
+    var realmOn = true
 }

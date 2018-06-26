@@ -31,7 +31,10 @@ class TabBarController: UITabBarController {
     
     func getSitesList() {
         
-        let getServerData = GetServerDataOperation(url: "sites", parameters: nil, method: .get)
+        let parameters = [
+            "token_auth": appConfig.shared.appUser.token
+        ]
+        let getServerData = GetServerDataOperation(url: "sites", parameters: parameters, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             
@@ -53,7 +56,10 @@ class TabBarController: UITabBarController {
     
     func getWordsList() {
         
-        let getServerData = GetServerDataOperation(url: "persons", parameters: nil, method: .get)
+        let parameters = [
+            "token_auth": appConfig.shared.appUser.token
+        ]
+        let getServerData = GetServerDataOperation(url: "persons", parameters: parameters, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             

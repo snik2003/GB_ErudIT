@@ -68,11 +68,14 @@ class StatPresenterController: UITableViewController {
         ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
         
         var url = "persons/rank"
-        var parameters: Parameters? = nil
+        var parameters = [
+            "token_auth": appConfig.shared.appUser.token
+        ]
         
         if let date1 = beginDate, let date2 = endDate, let word = self.word {
             url = "persons/rank/\(word.id)/date"
             parameters = [
+                "token_auth": appConfig.shared.appUser.token,
                 "_from": dateFormatter.string(from: date1),
                 "_till": dateFormatter.string(from: date2)
             ]
@@ -83,21 +86,21 @@ class StatPresenterController: UITableViewController {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.jsonErrorMessage(); return }
-            //print(json)
+            print(json)
             
             self.ranks = json.compactMap({ Rank(json: $0.1) })
             
             for rank in self.ranks {
                 if let site = self.site, self.word == nil {
                     if let wordName = appConfig.shared.words.filter({ $0.id == rank.wordID }).first?.name {
-                        //if rank.siteID == site.id {
+                        if rank.siteID == site.id {
                             if let num = self.result[wordName] {
                                 self.result[wordName] = num + rank.rank
                             } else {
                                 self.result[wordName] = rank.rank
                                 self.names.append(wordName)
                             }
-                        //}
+                        }
                     }
                 } else if self.site == nil, let word = self.word {
                     if let siteName = appConfig.shared.sites.filter({ $0.id == 1 /*rank.siteID*/ }).first?.name {
