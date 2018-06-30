@@ -23,9 +23,9 @@ class Site: Equatable {
     var siteDescription: String = ""
     
     init(json: JSON) {
-        self.id = json["id"].intValue
-        self.addedBy = json["addby"].intValue
-        self.name = json["name"].stringValue
-        self.siteDescription = json["siteDescription"].stringValue
+        self.id = json["site_id"].intValue
+        self.addedBy = json["site_addby"].intValue
+        self.name = json["site_name"].stringValue
+        self.siteDescription = json["site_siteDescription"].stringValue
     }
 }

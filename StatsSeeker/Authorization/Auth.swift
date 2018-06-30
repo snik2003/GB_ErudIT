@@ -90,7 +90,10 @@ class Auth {
     
     func getCurrentUserData(_ userID: Int, _ token: String) {
         
-        let getServerData = GetServerDataOperation(url: "users/\(userID)", parameters: nil, method: .get)
+        let parameters = [
+            "token_auth": token
+        ]
+        let getServerData = GetServerDataOperation(url: "users/\(userID)", parameters: parameters, method: .get)
         getServerData.completionBlock = {
             guard let data = getServerData.data else { return }
             

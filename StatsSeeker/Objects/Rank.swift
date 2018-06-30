@@ -15,7 +15,7 @@ class Rank {
     var siteID: Int = 0
     var wordID: Int = 0
     
-    var foundDate = ""
+    var foundDate: Int = 0
     var pageID: Int = 0
     var personID: Int = 0
     var siteAddBy: Int = 0
@@ -23,13 +23,13 @@ class Rank {
     
     init(json: JSON) {
         self.id = json["id"].intValue
-        self.rank = json["rank"].intValue
-        self.siteID = json["pageid"].intValue
-        self.wordID = json["personid"].intValue
+        self.rank = json["person_rank"].intValue
+        self.siteID = json["page_id"].intValue
+        self.wordID = json["person_id"].intValue
         
-        self.foundDate = json["site_found_date"].stringValue
+        self.foundDate = json["site_found_date"].intValue
         self.pageID = json["site_id"].intValue
-        self.personID = json["person_id"].intValue
+        //self.personID = json["person_id"].intValue
         self.siteAddBy = json["site_addby"].intValue
         self.wordAddBy = json["person_addby"].intValue
     }

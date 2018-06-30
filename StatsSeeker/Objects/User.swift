@@ -14,18 +14,20 @@ class User: Codable {
     var isAdmin = 0
     var addedBy = 0
     var login = ""
+    var password = ""
     var email = ""
     var token = ""
     
     init(json: JSON) {
-        self.id = json["id"].intValue
-        self.isAdmin = json["isadmin"].intValue
+        self.id = json["user_id"].intValue
+        self.isAdmin = json["user_isadmin"].intValue
         if self.isAdmin == 0 {
-            self.addedBy = json["addby"].intValue
+            self.addedBy = json["user_addby"].intValue
         } else {
             self.addedBy = self.id
         }
-        self.login = json["login"].stringValue
-        self.email = json["email"].stringValue
+        self.login = json["user_login"].stringValue
+        self.email = json["user_email"].stringValue
+        self.password = json["user_password"].stringValue
     }
 }

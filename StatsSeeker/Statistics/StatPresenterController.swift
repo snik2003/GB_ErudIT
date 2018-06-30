@@ -103,7 +103,7 @@ class StatPresenterController: UITableViewController {
                         }
                     }
                 } else if self.site == nil, let word = self.word {
-                    if let siteName = appConfig.shared.sites.filter({ $0.id == 1 /*rank.siteID*/ }).first?.name {
+                    if let siteName = appConfig.shared.sites.filter({ $0.id == rank.siteID }).first?.name {
                         if rank.wordID == word.id {
                             if let num = self.result[siteName] {
                                 self.result[siteName] = num + rank.rank
@@ -114,17 +114,16 @@ class StatPresenterController: UITableViewController {
                         }
                     }
                 } else if let site = self.site, let word = self.word {
-                    if rank.pageID == site.id, rank.personID == word.id, rank.siteAddBy == site.addedBy, rank.wordAddBy == word.addedBy {
+                    if rank.pageID == site.id, rank.wordID == word.id, rank.siteAddBy == site.addedBy, rank.wordAddBy == word.addedBy {
                         
-                        if let date = self.dateFormatter3.date(from: rank.foundDate) {
+                        let date = NSDate(timeIntervalSince1970: Double(rank.foundDate))
                             
-                            let strDate = self.dateFormatter2.string(from: date)
-                            if let num = self.result[strDate] {
-                                self.result[strDate] = num + rank.rank
-                            } else {
-                                self.result[strDate] = rank.rank
-                                self.names.append(strDate)
-                            }
+                        let strDate = self.dateFormatter2.string(from: date as Date)
+                        if let num = self.result[strDate] {
+                            self.result[strDate] = num + rank.rank
+                        } else {
+                            self.result[strDate] = rank.rank
+                            self.names.append(strDate)
                         }
                     }
                 }

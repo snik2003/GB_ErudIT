@@ -22,8 +22,8 @@ class Word: Equatable {
     var name: String = ""
     
     init(json: JSON) {
-        self.id = json["id"].intValue
-        self.addedBy = json["addby"].intValue
-        self.name = json["name"].stringValue
+        self.id = json["person_id"].intValue
+        self.addedBy = json["person_addby"].intValue
+        self.name = json["person_name"].stringValue
     }
 }
