@@ -24,12 +24,11 @@ class Rank {
     init(json: JSON) {
         self.id = json["id"].intValue
         self.rank = json["person_rank"].intValue
-        self.siteID = json["page_id"].intValue
+        self.siteID = json["site_id"].intValue
         self.wordID = json["person_id"].intValue
         
         self.foundDate = json["site_found_date"].intValue
-        self.pageID = json["site_id"].intValue
-        //self.personID = json["person_id"].intValue
+        self.pageID = json["page_id"].intValue
         self.siteAddBy = json["site_addby"].intValue
         self.wordAddBy = json["person_addby"].intValue
     }

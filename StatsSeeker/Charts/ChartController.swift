@@ -73,7 +73,7 @@ class ChartController: UIViewController {
             }
         }
         setBarChart(dataPoints: names, values: values)
-        
+        barChartView.barData?.setDrawValues(false)
         barChartView.frame = CGRect(x: 10, y: navHeight+10, width: self.view.bounds.width-20, height: self.view.bounds.height-navHeight-tabHeight-20)
         self.view.addSubview(barChartView)
         
@@ -98,7 +98,6 @@ class ChartController: UIViewController {
         
         pieChartView.legend.form = .circle
         pieChartView.legend.xOffset = 15
-        
         pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
         var values: [Int] = []
@@ -109,7 +108,8 @@ class ChartController: UIViewController {
             }
         }
         setPieChart(dataPoints: names, values: values)
-        
+        pieChartView.data?.setDrawValues(false)
+        pieChartView.drawEntryLabelsEnabled = false
         pieChartView.frame = CGRect(x: 10, y: navHeight+10, width: self.view.bounds.width-20, height: self.view.bounds.height-navHeight-tabHeight-20)
         self.view.addSubview(pieChartView)
         

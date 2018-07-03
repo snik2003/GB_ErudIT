@@ -67,12 +67,25 @@ class StatPresenterController: UITableViewController {
         tableView.separatorStyle = .none
         ViewControllerUtils().showActivityIndicator(uiView: self.tableView)
         
-        var url = "persons/rank"
+        var url = ""
         var parameters = [
             "token_auth": appConfig.shared.appUser.token
         ]
         
-        if let date1 = beginDate, let date2 = endDate, let word = self.word {
+        if let site = self.site, self.word == nil {
+            url = "persons/rank"
+            parameters = [
+                "token_auth": appConfig.shared.appUser.token,
+                "groupby": "siteID",
+                "siteID": "\(site.id)"
+            ]
+        } else if self.site == nil, let word = self.word {
+            url = "persons/rank/\(word.id)"
+            parameters = [
+                "token_auth": appConfig.shared.appUser.token,
+                "groupby": "siteID"
+            ]
+        } else if let date1 = beginDate, let date2 = endDate, let word = self.word {
             url = "persons/rank/\(word.id)/date"
             parameters = [
                 "token_auth": appConfig.shared.appUser.token,
@@ -86,9 +99,9 @@ class StatPresenterController: UITableViewController {
             guard let data = getServerData.data else { return }
             
             guard let json = try? JSON(data: data) else { self.jsonErrorMessage(); return }
-            print(json)
+            //print(json)
             
-            self.ranks = json.compactMap({ Rank(json: $0.1) })
+            self.ranks = json.compactMap({ Rank(json: $0.1) }).sorted { $0.foundDate < $1.foundDate }
             
             for rank in self.ranks {
                 if let site = self.site, self.word == nil {
@@ -114,7 +127,7 @@ class StatPresenterController: UITableViewController {
                         }
                     }
                 } else if let site = self.site, let word = self.word {
-                    if rank.pageID == site.id, rank.wordID == word.id, rank.siteAddBy == site.addedBy, rank.wordAddBy == word.addedBy {
+                    if rank.siteID == site.id, rank.wordID == word.id, rank.siteAddBy == site.addedBy, rank.wordAddBy == word.addedBy {
                         
                         let date = NSDate(timeIntervalSince1970: Double(rank.foundDate))
                             
@@ -192,7 +205,7 @@ class StatPresenterController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "statCell", for: indexPath)
 
-        cell.textLabel?.text = "\(indexPath.row+1). \(names[indexPath.row])"
+        cell.textLabel?.text = names[indexPath.row]
         
         if let rank = result[names[indexPath.row]] {
             cell.detailTextLabel?.text = "\(rank)"
