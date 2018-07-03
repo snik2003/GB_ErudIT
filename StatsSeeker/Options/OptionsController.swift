@@ -26,8 +26,13 @@ class OptionsController: UIViewController {
         urlTextField.startConfigure()
         urlTextField.text = appConfig.shared.apiURL
         
+        hashSwitch.isOn = appConfig.shared.realmOn
+        
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
         self.view.addGestureRecognizer(hideKeyboardGesture)
+        
+        let saveButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.tapSaveButton(sender:)))
+        self.navigationItem.rightBarButtonItem = saveButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,5 +51,18 @@ class OptionsController: UIViewController {
     
     @objc func hideKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    @objc func tapSaveButton(sender: UIBarButtonItem) {
+        
+        if let text = urlTextField.text {
+            appConfig.shared.apiURL = text
+        }
+        appConfig.shared.realmOn = hashSwitch.isOn
+        
+        saveAppConfig()
+        getSitesList()
+        getWordsList()
+        self.navigationController?.popViewController(animated: true)
     }
 }

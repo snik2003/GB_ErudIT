@@ -53,10 +53,14 @@ class TotalStatController: UITableViewController {
                 break
             }
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         getStat()
     }
-
+    
     func getStat() {
         names.removeAll(keepingCapacity: false)
         

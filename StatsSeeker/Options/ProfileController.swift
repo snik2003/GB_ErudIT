@@ -56,7 +56,7 @@ class ProfileController: UITableViewController {
         
         // change password
         if indexPath.section == 1 && indexPath.row == 0 {
-            self.showErrorMessage(title: "Приложение «\(appConfig.shared.appName)»", msg: "Данный раздел находится в стадии разработки. Приносим извинения за неудобства.")
+            self.showErrorMessage(title: "Сменить пароль", msg: "Функция изменения пароля доступна только в платной версии приложения.\n\nДля изменения пароля обратитесь к Администратору системы.")
         }
         
         // about company

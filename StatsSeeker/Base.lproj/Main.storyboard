@@ -758,8 +758,8 @@
                                                     <rect key="frame" x="16" y="6" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="разраб." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TaT-xl-kZO">
-                                                    <rect key="frame" x="319.5" y="17" width="39.5" height="12.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TaT-xl-kZO">
+                                                    <rect key="frame" x="329.5" y="17" width="29.5" height="12.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="10"/>
                                                     <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -835,8 +835,8 @@
                                                     <rect key="frame" x="16" y="6" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="разраб." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aU1-Ce-c11">
-                                                    <rect key="frame" x="319.5" y="16" width="39.5" height="12.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aU1-Ce-c11">
+                                                    <rect key="frame" x="329.5" y="16" width="29.5" height="12.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="10"/>
                                                     <color key="textColor" red="0.92941176469999998" green="0.16862745100000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
